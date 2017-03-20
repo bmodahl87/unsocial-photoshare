@@ -1,0 +1,34 @@
+@(user: User)
+
+
+
+@homeTemplate(user, "Upload") {
+
+    <section>
+        <article id="uploadArticle">
+
+
+
+            <form action="@routes.Application.imageUpload" method="post" enctype="multipart/form-data">
+                <img id="imageUpload" src="@routes.Assets.versioned("images/upload-placeholder.svg")">
+                <br>
+                <br>
+                <label id="uploadLabel" class="custom-file-upload">
+                    <input type="file" name="picture" id="inputFile"/>
+                    <i class="fa fa-cloud-upload"></i> Select Image
+                </label>
+
+                <input type="text"  placeholder="Comment..." class="form-input" id="comments" name="comment">
+
+                <input type="submit" class="form-input" value="Upload" id="uploadButton">
+
+            </form>
+
+        </article>
+    </section>
+
+
+
+
+
+}

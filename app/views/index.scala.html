@@ -1,0 +1,51 @@
+@*
+ * This template takes a single argument, a String containing a
+ * message to display.
+ *@
+@(message: String)
+
+@*
+ * Call the `main` template with two arguments. The first
+ * argument is a `String` with the title of the page, the second
+ * argument is an `Html` object containing the body of the page.
+ *@
+@main("Unsocial Photo Share") {
+
+    <article id="sign-in-up">
+
+        @if(flash.contains("unauth")) {
+            <p class="alert alert-warning">
+            @flash.get("unauth")
+            </p>
+        }
+
+        @if(flash.contains("success")) {
+            <p class="success alert alert-done">
+            @flash.get("success")
+            </p>
+        }
+
+        @if(flash.contains("userNotAdded")) {
+            <p class="alert alert-warning">
+            @flash.get("userNotAdded")
+            </p>
+        }
+
+        <form id="sign-up" action="@routes.Application.addUser()" method="post">
+
+            <h2>Sign-Up!</h2>
+
+            <input type="text" class="form-input" name="name" placeholder="Name" /><br>
+            <input type="text" class="form-input" name="email" placeholder="Email" /><br>
+            <input type="text" class="form-input" name="username" placeholder="Username" /><br>
+            <input type="text" class="form-input" name="password" placeholder="Password" /><br>
+            <input type="submit" class="form-input" value="Sign-Up!">
+        </form>
+
+        <hr><br>
+
+        <h5>Or click <a href="@routes.Application.login()">here</a> to login.</h5>
+
+    </article>
+
+}

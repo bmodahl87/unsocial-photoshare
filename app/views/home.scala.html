@@ -1,0 +1,32 @@
+@(user: User, image: List[Image])
+
+
+
+@homeTemplate(user, "User Home") {
+
+
+    <section id="home-section">
+
+
+        <article id="home-article">
+
+            <ul id="main-gallery">
+            @for(image <- image) {
+
+                <li>
+                    <a class="full-image" href="@routes.Application.getFullImage(image.full_image)" data-lightbox="image-1">
+                        <img class="thumb-image" src="@routes.Application.getThumbImage(image.thumb_image)" alt="Time">
+                    </a>
+                    <p class="image-comment">@image.comments</p>
+                </li>
+            }
+            </ul>
+
+        </article>
+
+    </section>
+
+
+
+
+}

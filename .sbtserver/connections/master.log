@@ -1,0 +1,10 @@
+New log file opened at Mon Mar 20 14:43:06 CDT 2017 by 14481@Brandons-MacBook-Pro.local
+Taking next connection to: 62564
+New client attempting to connect on port: 62565-62564
+  Address = /10.97.18.28:62564
+This client on port 62565 has uuid 3480a72b-acd9-4f1d-b71f-4cb801ada5a7 configName activator humanReadableName Activator protocolVersion 3 featureTags Vector()
+Connected Clients: activator-3480a72b-acd9-4f1d-b71f-4cb801ada5a7
+Taking next connection to: 62564
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 62564

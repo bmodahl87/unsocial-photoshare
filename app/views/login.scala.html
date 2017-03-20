@@ -1,0 +1,30 @@
+@(form: Form[Application.Login])
+
+
+@main("Login") {
+
+<article id="sign-in-up">
+
+  @if(flash.contains("userAdded")) {
+    <p class="alert">
+    @flash.get("userAdded")
+    </p>
+  }
+
+
+<form id="sign-in" action="@routes.Application.authenticate" method="post">
+
+  <h2>Sign-In!</h2>
+
+  <input type="text" class="form-input" name="username" placeholder="Username" /><br>
+  <input type="password" class="form-input" name="password" placeholder="Password" /><br>
+  <input type="submit" class="form-input" value="Sign-In!">
+</form>
+
+@if(form.hasGlobalErrors) {
+  <p class="error alert alert-error">
+  @form.globalError.message
+  </p>
+}
+</article>
+}
