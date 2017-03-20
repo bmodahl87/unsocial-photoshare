@@ -2,7 +2,7 @@
 
 | Date | Task | Hours | Notes|
 |------|------|-------|------|
-| 1/14/17| Course set up on Windows| 2 | |
+| 1/14/17| Course set up on Mac| 2 | |
 | 1/18/17| Set up project repository, write problem statement, time log, technologies used| 2 | |
 | 1/19/17| Exercise for week 1  | 1  |   |
 | 1/22/17| Readings for week 1 and 2| 2.5 | |
