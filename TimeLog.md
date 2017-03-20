@@ -22,3 +22,12 @@
 | 2/18/17| Added twirls for more views | 3 |  |
 | 2/19/17| UI update, Research on using files outside of app root | 6 |  |
 | 2/20/17| More Research, Success with files | 7 | JavaStream |
+| 2/23/17| Research on storing files on server | 6 |  |
+| 2/25/17| Research on file uploading | 8 |  |
+| 2/28/17| File upload implemented | 3 |  |
+| 3/2/17| Successfully storing images locally and on the server | 12 |  |
+| 3/3/17| Security/ Auth bug | 5 |  |
+| 3/5/17| Security/ Auth bug | 4 |  |
+| 3/7/17| Security/ Auth bug FIXED! | 5 | In terminal activator clean compile |
+| 3/10/17| Worked on views | 4 |  |
+| 3/13/17| Upload view - added JS image preview | 3 |  |
