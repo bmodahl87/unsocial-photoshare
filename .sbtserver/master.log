@@ -139,3 +139,51 @@ All initially invalidated sources: Set()
 Total time: 1 s, completed Mar 20, 2017 2:43:24 PM
 > server-post-command-cleanup
 > server-handle-next-server-request
+> backgroundRun
+Evaluating tasks: compile:backgroundRun
+Running task... Cancel: sbt.server.ServerTaskCancellation@5dfda7e9, check cycles: false
+Total time: 0 s, completed Mar 20, 2017 2:50:45 PM
+> server-post-command-cleanup
+> server-handle-next-server-request
+> {file:/Users/bmodahl/unsocial-photoshare/}root/*:playForkConfig
+Evaluating tasks: *:playForkConfig
+Running task... Cancel: sbt.server.ServerTaskCancellation@3c39a4f9, check cycles: false
+Total time: 1 s, completed Mar 20, 2017 2:51:04 PM
+> server-post-command-cleanup
+> server-handle-next-server-request
+> root/playForkNotifyStart http://localhost:9000
+Evaluating tasks: *:playForkNotifyStart
+Running task... Cancel: sbt.server.ServerTaskCancellation@4d5b877c, check cycles: false
+Total time: 0 s, completed Mar 20, 2017 2:51:11 PM
+> server-post-command-cleanup
+> server-handle-next-server-request
+> {file:/Users/bmodahl/unsocial-photoshare/}root/*:playForkReload
+Evaluating tasks: *:playForkReload
+Running task... Cancel: sbt.server.ServerTaskCancellation@1bbaa0fa, check cycles: false
+
+Initial source changes: 
+	removed:Set()
+	added: Set()
+	modified: Set()
+Removed products: Set()
+External API changes: API Changes: Set()
+Modified binary dependencies: Set()
+Initial directly invalidated sources: Set()
+
+Sources indirectly invalidated by:
+	product: Set()
+	binary dep: Set()
+	external source: Set()
+All initially invalidated sources: Set()
+
+Copy resource mappings: 
+	(/Users/bmodahl/unsocial-photoshare/conf/application.conf,/Users/bmodahl/unsocial-photoshare/target/scala-2.11/classes/application.conf)
+	(/Users/bmodahl/unsocial-photoshare/conf/evolutions,/Users/bmodahl/unsocial-photoshare/target/scala-2.11/classes/evolutions)
+	(/Users/bmodahl/unsocial-photoshare/conf/logback.xml,/Users/bmodahl/unsocial-photoshare/target/scala-2.11/classes/logback.xml)
+	(/Users/bmodahl/unsocial-photoshare/conf/prod.conf,/Users/bmodahl/unsocial-photoshare/target/scala-2.11/classes/prod.conf)
+	(/Users/bmodahl/unsocial-photoshare/conf/routes,/Users/bmodahl/unsocial-photoshare/target/scala-2.11/classes/routes)
+	(/Users/bmodahl/unsocial-photoshare/conf/evolutions/default,/Users/bmodahl/unsocial-photoshare/target/scala-2.11/classes/evolutions/default)
+	(/Users/bmodahl/unsocial-photoshare/conf/evolutions/default/1.sql,/Users/bmodahl/unsocial-photoshare/target/scala-2.11/classes/evolutions/default/1.sql)
+Total time: 2 s, completed Mar 20, 2017 2:51:22 PM
+> server-post-command-cleanup
+> server-handle-next-server-request
