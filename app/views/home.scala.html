@@ -10,6 +10,8 @@
 
         <article id="home-article">
 
+            <h2>Recent Activity</h2>
+
             <ul id="main-gallery">
             @for(image <- image) {
 
@@ -19,7 +21,21 @@
                     </a>
                     <p class="image-comment">@image.comments</p>
                 </li>
+
             }
+
+                @for(following <- user.following) {
+
+                    @for(image <- following.images) {
+
+                        <li>
+                            <a class="full-image" href="@routes.Application.getFullImage(image.full_image)" data-lightbox="image-1">
+                                <img class="thumb-image" src="@routes.Application.getThumbImage(image.thumb_image)" alt="Time">
+                            </a>
+                            <p class="image-comment">@image.comments</p>
+                        </li>
+                    }
+                }
             </ul>
 
         </article>

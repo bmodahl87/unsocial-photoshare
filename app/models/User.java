@@ -2,8 +2,9 @@ package models;
 
 import com.avaje.ebean.Model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -18,6 +19,18 @@ public class User extends Model {
     public String name;
     public String password;
     public String email;
+    public String profile_image;
+    public String wall_image;
+
+
+    @OneToMany(mappedBy = "user", cascade= CascadeType.ALL)
+    public List<Image> images = new ArrayList<>();
+
+    @OneToMany(mappedBy = "user", cascade= CascadeType.ALL)
+    public List<Follower> followers = new ArrayList<>();
+
+    @OneToMany(mappedBy = "user", cascade= CascadeType.ALL)
+    public List<Following> following = new ArrayList<>();
 
 
     /**
@@ -84,9 +97,7 @@ public class User extends Model {
      *
      * @param username username
      */
-    public void setUsername(String username) {
-        this.username = username;
-    }
+    public void setUsername(String username) { this.username = username; }
 
     /**
      * Gets password.
@@ -104,6 +115,42 @@ public class User extends Model {
      */
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    /**
+     * Gets password.
+     *
+     * @return the password
+     */
+    public String getProfile_image() {
+        return profile_image;
+    }
+
+    /**
+     * Sets password.
+     *
+     * @param profile_image the first name
+     */
+    public void setProfile_image(String profile_image) {
+        this.profile_image = profile_image;
+    }
+
+    /**
+     * Gets password.
+     *
+     * @return the wall_image
+     */
+    public String getWall_image() {
+        return wall_image;
+    }
+
+    /**
+     * Sets password.
+     *
+     * @param wall_image the first name
+     */
+    public void setWall_image(String wall_image) {
+        this.wall_image = wall_image;
     }
 
 

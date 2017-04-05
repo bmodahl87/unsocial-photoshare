@@ -1,0 +1,53 @@
+@(user: User, image: List[Image])
+
+
+
+@homeTemplate(user, "User Profile") {
+
+    <section id="profile-section">
+
+        <article id="profile-article">
+
+            <div id="header-container">
+                <header id="profile-header">
+
+                    <div id="user-info">
+                        <img src="@routes.Application.getFullImage(user.getProfile_image)" id="profile-image">
+                        <h2>@user.name</h2>
+                        <h5>Followers: </h5>
+                    </div>
+                    <img src="@routes.Application.getFullImage(user.getWall_image)" id="wallpaper-image">
+
+                </header>
+            </div>
+        </article>
+
+
+
+
+        <article id="profile-gallery-article">
+
+            <ul id="main-gallery">
+            @for(image <- image) {
+
+                <li>
+                    <a class="full-image" href="@routes.Application.getFullImage(image.full_image)" data-lightbox="image-1">
+                        <img class="thumb-image" src="@routes.Application.getThumbImage(image.thumb_image)" alt="Time">
+                    </a>
+                    <p class="image-comment">@image.comments</p>
+                </li>
+            }
+            </ul>
+
+        </article>
+
+
+
+
+    </section>
+
+
+
+
+
+}

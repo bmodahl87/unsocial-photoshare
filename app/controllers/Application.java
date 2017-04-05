@@ -19,6 +19,10 @@ import javax.inject.Inject;
 import javax.persistence.PersistenceException;
 import java.awt.image.BufferedImage;
 import java.io.*;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.List;
 
 import static play.libs.Json.toJson;
@@ -52,12 +56,28 @@ public class Application extends Controller {
 
     @Security.Authenticated(Secured.class)
     public Result profileHome() {
-        return ok(profileHome.render(User.authFind.ref(request().username())));
+        List<Image> imageList =
+                Ebean.find(Image.class)
+                        .where().eq("username", request().username())
+                        .findList();
+        return ok(profileHome.render(User.authFind.ref(request().username()), imageList));
+    }
+
+    public Result getProfile(String username) {
+        List<Image> imageList =
+                Ebean.find(Image.class)
+                        .where().eq("username", username)
+                        .findList();
+        return ok(profileHome.render(User.authFind.ref(username), imageList));
     }
 
     @Security.Authenticated(Secured.class)
     public Result search() {
-        return ok(search.render(User.authFind.ref(request().username())));
+        DynamicForm requestData = formFactory.form().bindFromRequest();
+
+        List<User> userList = Ebean.find(User.class)
+                .where().contains("username", requestData.get("search")).findList();
+        return ok(search.render(User.authFind.ref(request().username()), userList));
     }
 
     @Security.Authenticated(Secured.class)
@@ -74,16 +94,20 @@ public class Application extends Controller {
     public Result upload() { return ok(upload.render(User.authFind.ref(request().username()))); }
 
     @Security.Authenticated(Secured.class)
-    public Result imageUpload() {
+    public Result imageUpload() throws MalformedURLException, IOException {
         Http.MultipartFormData<File> body = request().body().asMultipartFormData();
         Http.MultipartFormData.FilePart<File> picture = body.getFile("picture");
 
         if (picture != null) {
-            String fileName = picture.getFilename();
+            String fileName = Integer.toString(picture.getFilename().hashCode()) + ".jpg";
             File file = picture.getFile();
-            try {
 
-                FileUtils.moveFile(file, new File("/Users/bmodahl/Desktop/fullImages/", fileName));
+            FileUtils.moveFile(file, new File("/Users/bmodahl/Desktop/fullImages/", fileName));
+
+            try (InputStream in = new URL("http://localhost:8080/resizeImage/resizeImageJpeg?url=http://localhost:9000/fullImage?image=" + fileName + "&width=200&height=200").openStream()){
+
+                Files.copy(in, Paths.get("/Users/bmodahl/Desktop/thumbImages/" + fileName));
+
                 //FileUtils.moveFile(file, new File("/home/ubuntu/fullImages/", fileName));
             } catch (IOException ioe) {
                 System.out.println("Problem operating on filesystem");
@@ -96,7 +120,7 @@ public class Application extends Controller {
 
 
             image.full_image = fileName;
-            image.thumb_image = "";
+            image.thumb_image = fileName;
             image.username = User.authFind.ref(request().username()).getUsername();
             image.comments = requestData.get("comment");
 

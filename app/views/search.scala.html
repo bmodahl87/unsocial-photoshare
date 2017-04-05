@@ -1,9 +1,25 @@
-@(user: User)
+@(user: User, users: List[User])
 
 
 
 @homeTemplate(user, "User Search") {
 
+
+    <section id="search-section">
+
+        <article id="search-article">
+
+            @for(user <- users) {
+                <p>
+                    <a href="@routes.Application.getProfile(user.username)">@user.username</a>
+                </p>
+            }
+
+
+        </article>
+
+
+    </section>
 
 
 

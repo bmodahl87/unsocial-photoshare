@@ -17,10 +17,25 @@
   </head>
   <body>
     <header id="main-top">
-      <img src="@routes.Assets.versioned("images/unsocialLogo.png")" id="logo" >
-      <input type="text" id="searchBar" class="form-input" placeholder="Search..." />
-      <p id="userInfo">@user.getUsername</p>
-      <a href="@routes.Application.logout()" id="logout" >Logout</a>
+        <div id="img-box">
+            <img src="@routes.Assets.versioned("images/unsocialLogo.png")" id="logo" >
+        </div>
+
+      <form action="@routes.Application.search" method="post">
+          <input type="text" id="searchBar" class="form-input" name="search" placeholder="Search..." />
+      </form>
+
+
+
+
+      <div id="prof-container" class="dropdown">
+        <span><img src="@routes.Application.getFullImage(user.getProfile_image)" ></span>
+        <div class="dropdown-content">
+          <p id="userInfo">Logged in as: @user.getUsername</p><br>
+          <a href="@routes.Application.logout()" id="logout" >Logout</a>
+        </div>
+
+      </div>
     </header>
 
     <nav id="homeNav">

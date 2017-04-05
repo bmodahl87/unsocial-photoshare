@@ -19,7 +19,10 @@ GET     /profileHome         controllers.Application.profileHome
 GET     /upload              controllers.Application.upload
 POST    /upload              controllers.Application.imageUpload
 GET     /search              controllers.Application.search
+POST    /search              controllers.Application.search
 GET     /notifications       controllers.Application.notifications
+
+GET    /user/:username      controllers.Application.getProfile(username:String)
 
 
 # User CRUD Testing

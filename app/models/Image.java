@@ -2,8 +2,8 @@ package models;
 
 import com.avaje.ebean.Model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
+
 
 
 /**
@@ -18,6 +18,15 @@ public class Image extends Model {
     public String full_image;
     public String thumb_image;
     public String comments;
+
+    @ManyToOne(optional=false)
+    public User user;
+
+    @ManyToOne(optional=false)
+    public Follower follower;
+
+    @ManyToOne(optional=false)
+    public Following following;
 
 
     public static Find<String, Image> find = new Find<String, Image>(){};
