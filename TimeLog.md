@@ -31,3 +31,8 @@
 | 3/7/17| Security/ Auth bug FIXED! | 5 | In terminal activator clean compile |
 | 3/10/17| Worked on views | 4 |  |
 | 3/13/17| Upload view - added JS image preview | 3 |  |
+| 3/23/17| Profile view designed | 3 |  |
+| 3/26/17| Profile view connected | 2 |  |
+| 3/28/17| DB relationships fixed | 5 | Working relationships with fKey |
+| 4/1/17| Added Follower/Followers to DB | 3 |  |
+| 4/4/17| Implemented follower system | 4 | Still needs follow/unfollow active/inactive button |

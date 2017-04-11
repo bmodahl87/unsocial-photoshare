@@ -18,6 +18,11 @@ section {
     width: 80%;
 }
 
+#home-article h2 {
+    text-align: left;
+    margin-left: -2em;
+}
+
 #profile-gallery-article {
     margin: 2em auto;
     width: 80%;

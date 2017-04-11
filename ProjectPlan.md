@@ -44,42 +44,55 @@ more detail.
 - [X] Add tests for new functionality
 
 ### Week 6
-- [ ] Time log entries
+- [X] Time log entries
 
 ### Week 7
-- [ ] Time log entries
-- [ ] Add search functionality
-- [ ] Determine how to add paging of search results
-
+- [X] Time log entries
+- [X] Add search functionality
+- [X] Determine how to add paging of search results
+- [ ] Work on views
 
 ### Week 8
-- [ ] Time log entries
-- [ ] Implement paging of search results
-- [ ] Code review
+- [X] Time log entries
+- [X] Implement paging of search results
+- [X] Work on views
+- [X] Code review
 
 ### Week 9
-- [ ] Time log entries
-- [ ] Add password reset/reminder function
+- [X] Time log entries
+- [X] Work on views
+- [X] Implement uploading
+- [X] Implement image resizing API
 
 ### Week 10
-- [ ] Time log entries
+- [X] Time log entries
+- [X] Work on views
+- [X] User Profile view
+- [X] Edit Profile view
+- [X] Design Following/Follower system
 
 ### Week 11
-- [ ] Time log entries
+- [X] Time log entries
+- [X] Work on views
+- [X] Implement Follower system
 
 ### Week 12
 - [ ] Time log entries
+- [ ] Work on views
+- [ ] Work on testing
+- [ ] Add AJAX
 
 ### Week 13
 - [ ] Time log entries
+- [ ] Work on testing
+- [ ] Work on AJAX
 
 ### Week 14
 - [ ] Time log entries
+- [ ] Finish testing
+- [ ] Finish AJAX
 - [ ] Create final presentation
 
 ### Week 15
 - [ ] Final Presentation
-- [ ] Time log entries
-
-### Week 16
 - [ ] Time log entries

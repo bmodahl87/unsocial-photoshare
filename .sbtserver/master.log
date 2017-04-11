@@ -2036,3 +2036,257 @@ Copy resource mappings:
 Total time: 1 s, completed Apr 5, 2017 6:49:29 PM
 > server-post-command-cleanup
 > server-handle-next-server-request
+> compile
+Evaluating tasks: compile:compile
+Running task... Cancel: sbt.server.ServerTaskCancellation@57653f3a, check cycles: false
+
+Initial source changes: 
+	removed:Set(/Users/bmodahl/unsocial-photoshare/app/services/AtomicCounter.java, /Users/bmodahl/unsocial-photoshare/app/services/ApplicationTimer.java, /Users/bmodahl/unsocial-photoshare/app/services/Counter.java)
+	added: Set()
+	modified: Set()
+Removed products: Set()
+External API changes: API Changes: Set()
+Modified binary dependencies: Set()
+Initial directly invalidated sources: Set(/Users/bmodahl/unsocial-photoshare/app/services/AtomicCounter.java, /Users/bmodahl/unsocial-photoshare/app/services/ApplicationTimer.java, /Users/bmodahl/unsocial-photoshare/app/services/Counter.java)
+
+Sources indirectly invalidated by:
+	product: Set()
+	binary dep: Set()
+	external source: Set()
+All initially invalidated sources: Set(/Users/bmodahl/unsocial-photoshare/app/services/AtomicCounter.java, /Users/bmodahl/unsocial-photoshare/app/services/ApplicationTimer.java, /Users/bmodahl/unsocial-photoshare/app/services/Counter.java)
+
+Invalidating /Users/bmodahl/unsocial-photoshare/app/services/AtomicCounter.java...
+Invalidating (transitively) by inheritance from /Users/bmodahl/unsocial-photoshare/app/services/AtomicCounter.java...
+Initial set of included nodes: Set(/Users/bmodahl/unsocial-photoshare/app/services/AtomicCounter.java)
+Invalidated by transitive inheritance dependency: Set(/Users/bmodahl/unsocial-photoshare/app/services/AtomicCounter.java)
+The /Users/bmodahl/unsocial-photoshare/app/services/AtomicCounter.java source file has the following regular definitions changed:
+	notify, nextCount, wait, equals, AtomicCounter, atomicCounter, notifyAll, <init>, toString, getClass, hashCode.
+All member reference dependencies will be considered within this context.
+Invalidating /Users/bmodahl/unsocial-photoshare/app/services/ApplicationTimer.java...
+Invalidating (transitively) by inheritance from /Users/bmodahl/unsocial-photoshare/app/services/ApplicationTimer.java...
+Initial set of included nodes: Set(/Users/bmodahl/unsocial-photoshare/app/services/ApplicationTimer.java)
+Invalidated by transitive inheritance dependency: Set(/Users/bmodahl/unsocial-photoshare/app/services/ApplicationTimer.java)
+The /Users/bmodahl/unsocial-photoshare/app/services/ApplicationTimer.java source file has the following regular definitions changed:
+	notify, wait, appLifecycle, equals, ApplicationTimer, notifyAll, <init>, clock, lambda$new$2, toString, getClass, start, hashCode.
+All member reference dependencies will be considered within this context.
+Invalidating /Users/bmodahl/unsocial-photoshare/app/services/Counter.java...
+Invalidating (transitively) by inheritance from /Users/bmodahl/unsocial-photoshare/app/services/Counter.java...
+Initial set of included nodes: Set(/Users/bmodahl/unsocial-photoshare/app/services/Counter.java)
+Invalidated by transitive inheritance dependency: Set(/Users/bmodahl/unsocial-photoshare/app/services/Counter.java)
+The /Users/bmodahl/unsocial-photoshare/app/services/Counter.java source file has the following regular definitions changed:
+	nextCount, Counter.
+All member reference dependencies will be considered within this context.
+New invalidations:
+	Set()
+Initial set of included nodes: Set()
+Previously invalidated, but (transitively) depend on new invalidations:
+	Set()
+All newly invalidated sources after taking into account (previously) recompiled sources:Set()
+Total time: 1 s, completed Apr 5, 2017 6:55:21 PM
+> server-post-command-cleanup
+> server-handle-next-server-request
+> compile
+Evaluating tasks: compile:compile
+Running task... Cancel: sbt.server.ServerTaskCancellation@59731995, check cycles: false
+
+Initial source changes: 
+	removed:Set()
+	added: Set()
+	modified: Set()
+Removed products: Set()
+External API changes: API Changes: Set()
+Modified binary dependencies: Set()
+Initial directly invalidated sources: Set()
+
+Sources indirectly invalidated by:
+	product: Set()
+	binary dep: Set()
+	external source: Set()
+All initially invalidated sources: Set()
+
+Total time: 1 s, completed Apr 5, 2017 6:55:22 PM
+> server-post-command-cleanup
+> server-handle-next-server-request
+> compile
+Evaluating tasks: compile:compile
+Running task... Cancel: sbt.server.ServerTaskCancellation@eb4b48, check cycles: false
+
+Initial source changes: 
+	removed:Set(/Users/bmodahl/unsocial-photoshare/app/filters/ExampleFilter.java)
+	added: Set()
+	modified: Set()
+Removed products: Set()
+External API changes: API Changes: Set()
+Modified binary dependencies: Set()
+Initial directly invalidated sources: Set(/Users/bmodahl/unsocial-photoshare/app/filters/ExampleFilter.java)
+
+Sources indirectly invalidated by:
+	product: Set()
+	binary dep: Set()
+	external source: Set()
+All initially invalidated sources: Set(/Users/bmodahl/unsocial-photoshare/app/filters/ExampleFilter.java)
+
+Invalidating /Users/bmodahl/unsocial-photoshare/app/filters/ExampleFilter.java...
+Invalidating (transitively) by inheritance from /Users/bmodahl/unsocial-photoshare/app/filters/ExampleFilter.java...
+Initial set of included nodes: Set(/Users/bmodahl/unsocial-photoshare/app/filters/ExampleFilter.java)
+Invalidated by transitive inheritance dependency: Set(/Users/bmodahl/unsocial-photoshare/app/filters/ExampleFilter.java)
+The /Users/bmodahl/unsocial-photoshare/app/filters/ExampleFilter.java source file has the following regular definitions changed:
+	asScala, notify, wait, equals, ExampleFilter, lambda$apply$0, notifyAll, asJava, <init>, apply, toString, getClass, exec, hashCode.
+All member reference dependencies will be considered within this context.
+New invalidations:
+	Set()
+Initial set of included nodes: Set()
+Previously invalidated, but (transitively) depend on new invalidations:
+	Set()
+All newly invalidated sources after taking into account (previously) recompiled sources:Set()
+Total time: 1 s, completed Apr 5, 2017 6:55:36 PM
+> server-post-command-cleanup
+> server-handle-next-server-request
+> compile
+Evaluating tasks: compile:compile
+Running task... Cancel: sbt.server.ServerTaskCancellation@6f8f8dbe, check cycles: false
+
+Initial source changes: 
+	removed:Set()
+	added: Set()
+	modified: Set()
+Removed products: Set()
+External API changes: API Changes: Set()
+Modified binary dependencies: Set()
+Initial directly invalidated sources: Set()
+
+Sources indirectly invalidated by:
+	product: Set()
+	binary dep: Set()
+	external source: Set()
+All initially invalidated sources: Set()
+
+Total time: 1 s, completed Apr 5, 2017 6:55:36 PM
+> server-post-command-cleanup
+> server-handle-next-server-request
+> {file:/Users/bmodahl/unsocial-photoshare/}root/*:playForkReload
+Evaluating tasks: *:playForkReload
+Running task... Cancel: sbt.server.ServerTaskCancellation@410913f, check cycles: false
+
+Initial source changes: 
+	removed:Set()
+	added: Set()
+	modified: Set()
+Removed products: Set()
+External API changes: API Changes: Set()
+Modified binary dependencies: Set()
+Initial directly invalidated sources: Set()
+
+Sources indirectly invalidated by:
+	product: Set()
+	binary dep: Set()
+	external source: Set()
+All initially invalidated sources: Set()
+
+Copy resource mappings: 
+	(/Users/bmodahl/unsocial-photoshare/conf/application.conf,/Users/bmodahl/unsocial-photoshare/target/scala-2.11/classes/application.conf)
+	(/Users/bmodahl/unsocial-photoshare/conf/evolutions,/Users/bmodahl/unsocial-photoshare/target/scala-2.11/classes/evolutions)
+	(/Users/bmodahl/unsocial-photoshare/conf/logback.xml,/Users/bmodahl/unsocial-photoshare/target/scala-2.11/classes/logback.xml)
+	(/Users/bmodahl/unsocial-photoshare/conf/prod.conf,/Users/bmodahl/unsocial-photoshare/target/scala-2.11/classes/prod.conf)
+	(/Users/bmodahl/unsocial-photoshare/conf/routes,/Users/bmodahl/unsocial-photoshare/target/scala-2.11/classes/routes)
+	(/Users/bmodahl/unsocial-photoshare/conf/evolutions/default,/Users/bmodahl/unsocial-photoshare/target/scala-2.11/classes/evolutions/default)
+	(/Users/bmodahl/unsocial-photoshare/conf/evolutions/default/1.sql,/Users/bmodahl/unsocial-photoshare/target/scala-2.11/classes/evolutions/default/1.sql)
+Total time: 1 s, completed Apr 5, 2017 6:55:44 PM
+> server-post-command-cleanup
+> server-handle-next-server-request
+> {file:/Users/bmodahl/unsocial-photoshare/}root/*:playForkReload
+Evaluating tasks: *:playForkReload
+Running task... Cancel: sbt.server.ServerTaskCancellation@59c30402, check cycles: false
+
+Initial source changes: 
+	removed:Set()
+	added: Set()
+	modified: Set()
+Removed products: Set()
+External API changes: API Changes: Set()
+Modified binary dependencies: Set()
+Initial directly invalidated sources: Set()
+
+Sources indirectly invalidated by:
+	product: Set()
+	binary dep: Set()
+	external source: Set()
+All initially invalidated sources: Set()
+
+Copy resource mappings: 
+	(/Users/bmodahl/unsocial-photoshare/conf/application.conf,/Users/bmodahl/unsocial-photoshare/target/scala-2.11/classes/application.conf)
+	(/Users/bmodahl/unsocial-photoshare/conf/evolutions,/Users/bmodahl/unsocial-photoshare/target/scala-2.11/classes/evolutions)
+	(/Users/bmodahl/unsocial-photoshare/conf/logback.xml,/Users/bmodahl/unsocial-photoshare/target/scala-2.11/classes/logback.xml)
+	(/Users/bmodahl/unsocial-photoshare/conf/prod.conf,/Users/bmodahl/unsocial-photoshare/target/scala-2.11/classes/prod.conf)
+	(/Users/bmodahl/unsocial-photoshare/conf/routes,/Users/bmodahl/unsocial-photoshare/target/scala-2.11/classes/routes)
+	(/Users/bmodahl/unsocial-photoshare/conf/evolutions/default,/Users/bmodahl/unsocial-photoshare/target/scala-2.11/classes/evolutions/default)
+	(/Users/bmodahl/unsocial-photoshare/conf/evolutions/default/1.sql,/Users/bmodahl/unsocial-photoshare/target/scala-2.11/classes/evolutions/default/1.sql)
+Total time: 1 s, completed Apr 5, 2017 6:58:04 PM
+> server-post-command-cleanup
+> server-handle-next-server-request
+> {file:/Users/bmodahl/unsocial-photoshare/}root/*:playForkReload
+Evaluating tasks: *:playForkReload
+Running task... Cancel: sbt.server.ServerTaskCancellation@3cecd96, check cycles: false
+
+Initial source changes: 
+	removed:Set()
+	added: Set()
+	modified: Set()
+Removed products: Set()
+External API changes: API Changes: Set()
+Modified binary dependencies: Set()
+Initial directly invalidated sources: Set()
+
+Sources indirectly invalidated by:
+	product: Set()
+	binary dep: Set()
+	external source: Set()
+All initially invalidated sources: Set()
+
+Copy resource mappings: 
+	(/Users/bmodahl/unsocial-photoshare/conf/application.conf,/Users/bmodahl/unsocial-photoshare/target/scala-2.11/classes/application.conf)
+	(/Users/bmodahl/unsocial-photoshare/conf/evolutions,/Users/bmodahl/unsocial-photoshare/target/scala-2.11/classes/evolutions)
+	(/Users/bmodahl/unsocial-photoshare/conf/logback.xml,/Users/bmodahl/unsocial-photoshare/target/scala-2.11/classes/logback.xml)
+	(/Users/bmodahl/unsocial-photoshare/conf/prod.conf,/Users/bmodahl/unsocial-photoshare/target/scala-2.11/classes/prod.conf)
+	(/Users/bmodahl/unsocial-photoshare/conf/routes,/Users/bmodahl/unsocial-photoshare/target/scala-2.11/classes/routes)
+	(/Users/bmodahl/unsocial-photoshare/conf/evolutions/default,/Users/bmodahl/unsocial-photoshare/target/scala-2.11/classes/evolutions/default)
+	(/Users/bmodahl/unsocial-photoshare/conf/evolutions/default/1.sql,/Users/bmodahl/unsocial-photoshare/target/scala-2.11/classes/evolutions/default/1.sql)
+Total time: 1 s, completed Apr 5, 2017 6:58:23 PM
+> server-post-command-cleanup
+> server-handle-next-server-request
+> {file:/Users/bmodahl/unsocial-photoshare/}root/*:playForkReload
+Evaluating tasks: *:playForkReload
+Running task... Cancel: sbt.server.ServerTaskCancellation@d7a7185, check cycles: false
+
+Initial source changes: 
+	removed:Set()
+	added: Set()
+	modified: Set()
+Removed products: Set()
+External API changes: API Changes: Set()
+Modified binary dependencies: Set()
+Initial directly invalidated sources: Set()
+
+Sources indirectly invalidated by:
+	product: Set()
+	binary dep: Set()
+	external source: Set()
+All initially invalidated sources: Set()
+
+Copy resource mappings: 
+	(/Users/bmodahl/unsocial-photoshare/conf/application.conf,/Users/bmodahl/unsocial-photoshare/target/scala-2.11/classes/application.conf)
+	(/Users/bmodahl/unsocial-photoshare/conf/evolutions,/Users/bmodahl/unsocial-photoshare/target/scala-2.11/classes/evolutions)
+	(/Users/bmodahl/unsocial-photoshare/conf/logback.xml,/Users/bmodahl/unsocial-photoshare/target/scala-2.11/classes/logback.xml)
+	(/Users/bmodahl/unsocial-photoshare/conf/prod.conf,/Users/bmodahl/unsocial-photoshare/target/scala-2.11/classes/prod.conf)
+	(/Users/bmodahl/unsocial-photoshare/conf/routes,/Users/bmodahl/unsocial-photoshare/target/scala-2.11/classes/routes)
+	(/Users/bmodahl/unsocial-photoshare/conf/evolutions/default,/Users/bmodahl/unsocial-photoshare/target/scala-2.11/classes/evolutions/default)
+	(/Users/bmodahl/unsocial-photoshare/conf/evolutions/default/1.sql,/Users/bmodahl/unsocial-photoshare/target/scala-2.11/classes/evolutions/default/1.sql)
+Total time: 1 s, completed Apr 5, 2017 6:58:36 PM
+> server-post-command-cleanup
+> server-handle-next-server-request
+> jobStop 11
+Evaluating tasks: *:jobStop
+Running task... Cancel: sbt.server.ServerTaskCancellation@3c1cc865, check cycles: false
+Total time: 0 s, completed Apr 5, 2017 7:08:25 PM
+> server-post-command-cleanup
+> server-handle-next-server-request
