@@ -3,7 +3,7 @@ package models;
 import com.avaje.ebean.Model;
 
 import javax.persistence.*;
-
+import java.util.List;
 
 
 /**
@@ -19,17 +19,15 @@ public class Image extends Model {
     public String thumb_image;
     public String comments;
 
-    @ManyToOne(optional=false)
+    @ManyToOne(cascade = CascadeType.ALL)
     public User user;
 
-    @ManyToOne(optional=false)
-    public Follower follower;
-
-    @ManyToOne(optional=false)
+    @ManyToOne(cascade = CascadeType.ALL)
     public Following following;
 
-
     public static Find<String, Image> find = new Find<String, Image>(){};
+
+    public static Find<Integer, Image> findID = new Find<Integer, Image>(){};
 
 
 

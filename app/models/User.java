@@ -26,12 +26,32 @@ public class User extends Model {
     @OneToMany(mappedBy = "user", cascade= CascadeType.ALL)
     public List<Image> images = new ArrayList<>();
 
-    @OneToMany(mappedBy = "user", cascade= CascadeType.ALL)
-    public List<Follower> followers = new ArrayList<>();
+    public List<Image> imageSlide() {
+        return Image.find.setMaxRows(4).where().eq("username", username).findList();
+    }
 
     @OneToMany(mappedBy = "user", cascade= CascadeType.ALL)
-    public List<Following> following = new ArrayList<>();
+    public List<Following> following() {
+        return Following.find.where().eq("following_username", username).findList();
+    }
 
+    public List<Following> followers() {
+        return Following.find.where().eq("username", username).findList();
+    }
+
+    public boolean isFollowing(User thisUsername) {
+        Following following = Following.authFind.where()
+                .eq("user", thisUsername)
+                .and()
+                .eq("following_username", username)
+                .findUnique();
+
+        if (following != null) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
     /**
      * Generic query helper for entity Computer with id Long

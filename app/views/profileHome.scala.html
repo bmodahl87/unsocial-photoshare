@@ -16,9 +16,11 @@
                             <img src="@routes.Application.getFullImage(user.getProfile_image)" id="profile-image">
                         </div>
 
-                        <h2>@user.name</h2>
-                        <h5>Followers: @user.followers.length</h5>
-                    </div>
+                            <h2>@user.name</h2>
+                            <h5>Followers: @user.followers.length</h5>
+
+                        </div>
+
                     <img src="@routes.Application.getFullImage(user.getWall_image)" id="wallpaper-image">
 
                 </header>
@@ -30,13 +32,17 @@
 
         <article id="profile-gallery-article">
 
-            <ul id="main-gallery">
+            <ul id="main-gallery" class="profile-gallery">
+
             @for(image <- user.images) {
 
                 <li>
+                    <button type="button" id="@image.id">X</button>
                     <a class="full-image" href="@routes.Application.getFullImage(image.full_image)" data-lightbox="image-1">
+
                         <img class="thumb-image" src="@routes.Application.getThumbImage(image.thumb_image)" alt="Time">
                     </a>
+
                     <p class="image-comment">@image.comments</p>
                 </li>
             }

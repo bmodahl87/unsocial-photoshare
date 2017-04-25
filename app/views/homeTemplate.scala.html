@@ -9,7 +9,8 @@
     <link rel="stylesheet" type="text/css"  media="screen" href="@routes.Assets.versioned("stylesheets/dist/css/lightbox.css")">
     <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/main.css")">
     <script src="@routes.Assets.versioned("stylesheets/dist/js/lightbox-plus-jquery.js")"></script>
-    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="@routes.Assets.versioned("javascripts/main.js")"></script>
 
     <link rel="shortcut icon" type="image/png" href="@routes.Assets.versioned("images/favicon.png")">
@@ -44,10 +45,10 @@
         <li><a href="@routes.Application.profileHome()"><i class="fa fa-user smallRight" aria-hidden="true"></i><span class="smallLeft">Profile</span></a></li>
         <li><a href="@routes.Application.following()"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Following</a></li>
         <li><a href="@routes.Application.followers()"><i class="fa fa-user-circle" aria-hidden="true"></i> Followers</a></li>
-        <li><a href="@routes.Application.upload()"><i class="fa fa-upload" aria-hidden="true"></i> Upload</a></li>
+        <li><a href="@routes.Application.upload()"><i class="fa fa-upload smallerRight" aria-hidden="true"></i> Upload</a></li>
         <li><a href="@routes.Application.notifications()"><i class="fa fa-bell" aria-hidden="true"></i> Notifications</a></li>
         <hr>
-        <li><a href="@routes.Application.notifications()"><i class="fa fa-gear" aria-hidden="true"></i> Settings</a></li>
+        <li><a href="@routes.Application.notifications()"><i class="fa fa-gear smallRight" aria-hidden="true"></i>Settings</a></li>
       </ul>
     </nav>
 

@@ -36,3 +36,8 @@
 | 3/28/17| DB relationships fixed | 5 | Working relationships with fKey |
 | 4/1/17| Added Follower/Followers to DB | 3 |  |
 | 4/4/17| Implemented follower system | 4 | Still needs follow/unfollow active/inactive button |
+| 4/10/17| Fixing Relationships | 3 |  |
+| 4/15/17| Current relationships good | 3 | Specific query methods |
+| 4/21/17| Worked on views | 4 | added follow button |
+| 4/23/17| Follow button working with AJAX | 5 |  |
+| 4/24/17| Implemented JQuery effects and more AJAX | 7 |  |

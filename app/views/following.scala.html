@@ -1,4 +1,4 @@
-@(user: User)
+@(user: User, following: List[Following])
 
 
 
@@ -6,7 +6,45 @@
 
 
 
+    <section >
+        <article class="follow-section">
 
+                @for(followingUser <- user.following) {
+                    <table class="userList">
+                        <tbody>
+                    <tr>
+
+                        <td class="profile-image" rowspan="2"><img src="@routes.Application.getFullImage(followingUser.user.getProfile_image)"></td>
+                        <td class="blocktd titletd">
+                            @followingUser.username
+                            <button id="@followingUser.username" type="button" class="followButton">Unfollow</button>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="blocktd imagetd">
+
+                            <ul>
+                                @for(image <- followingUser.user.imageSlide) {
+                                    <li>
+                                        <span>
+
+                                            <img class="mini-slide-img" src="@routes.Application.getThumbImage(image.thumb_image)">
+
+                                        </span>
+                                    </li>
+                                }
+                            </ul>
+
+                        </td>
+
+                    </tr>
+
+                </tbody>
+            </table>
+                }
+        </article>
+    </section>
 
 
 

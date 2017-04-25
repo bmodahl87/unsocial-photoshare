@@ -2,8 +2,9 @@ package controllers;
 
 
 import com.avaje.ebean.Ebean;
-import com.avaje.ebean.Model;
+import com.avaje.ebean.Expr;
 import com.avaje.ebean.Transaction;
+import models.Following;
 import models.Image;
 import models.User;
 import org.apache.commons.io.FileUtils;
@@ -14,16 +15,14 @@ import play.mvc.*;
 import views.html.*;
 
 
-import javax.imageio.ImageIO;
 import javax.inject.Inject;
 import javax.persistence.PersistenceException;
-import java.awt.image.BufferedImage;
 import java.io.*;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
+import java.util.UUID;
 
 import static play.libs.Json.toJson;
 
@@ -33,6 +32,8 @@ import static play.libs.Json.toJson;
  */
 public class Application extends Controller {
 
+    //ToDo: create user specific image list builder method.
+    //ToDo: LOGGING.
 
     private FormFactory formFactory;
 
@@ -82,29 +83,38 @@ public class Application extends Controller {
 
     @Security.Authenticated(Secured.class)
     public Result followers() {
-        return ok(followers.render(User.authFind.ref(request().username())));
+
+        List<Following> followerList = Ebean.find(Following.class).where().eq("username", request().username()).findList();
+
+        return ok(followers.render(User.authFind.ref(request().username()), followerList));
     }
 
     @Security.Authenticated(Secured.class)
     public Result following() {
-        return ok(following.render(User.authFind.ref(request().username())));
+
+        List<Following> followingList = Ebean.find(Following.class).where().eq("following_username", request().username()).findList();
+
+        return ok(following.render(User.authFind.ref(request().username()), followingList));
     }
+
 
     @Security.Authenticated(Secured.class)
     public Result upload() { return ok(upload.render(User.authFind.ref(request().username()))); }
 
     @Security.Authenticated(Secured.class)
-    public Result imageUpload() throws MalformedURLException, IOException {
+    public Result imageUpload() throws IOException {
         Http.MultipartFormData<File> body = request().body().asMultipartFormData();
         Http.MultipartFormData.FilePart<File> picture = body.getFile("picture");
+        String fileExt = picture.getContentType().substring(6);
 
         if (picture != null) {
-            String fileName = Integer.toString(picture.getFilename().hashCode()) + ".jpg";
+            String fileName = UUID.randomUUID().toString() + "." + fileExt;
             File file = picture.getFile();
 
             FileUtils.moveFile(file, new File("/Users/bmodahl/Desktop/fullImages/", fileName));
 
-            try (InputStream in = new URL("http://localhost:8080/resizeImage/resizeImageJpeg?url=http://localhost:9000/fullImage?image=" + fileName + "&width=200&height=200").openStream()){
+            try (InputStream in = new URL("http://13.58.91.127:8080/1mageRes1zer/image?urls=http://localhost:9000/fullImage?image="
+                    + fileName + "&width=200").openStream()){
 
                 Files.copy(in, Paths.get("/Users/bmodahl/Desktop/thumbImages/" + fileName));
 
@@ -123,6 +133,7 @@ public class Application extends Controller {
             image.thumb_image = fileName;
             image.username = User.authFind.ref(request().username()).getUsername();
             image.comments = requestData.get("comment");
+            image.user = User.authFind.ref(request().username());
 
             image.save();
 
@@ -132,6 +143,12 @@ public class Application extends Controller {
             flash("error", "Missing file");
             return badRequest();
         }
+    }
+
+    public Result deleteImage(int id) {
+        Image.findID.ref(id).delete();
+        flash("imageDeleted", "Image Successfully Deleted!");
+        return ok();
     }
 
     @Security.Authenticated(Secured.class)
@@ -149,14 +166,52 @@ public class Application extends Controller {
         //return ok(new java.io.File("/home/ubuntu/fullImages/" + image));
     }
 
-    public Result addUser() {
-        Form<User> userForm = formFactory.form(User.class).bindFromRequest();
+    @Security.Authenticated(Secured.class)
+    public Result follow(String username) {
+        Following follow = new Following();
 
-        if (User.authFind.byId(userForm.get().getUsername()) != null) {
+        follow.following_username = User.authFind.ref(request().username()).getUsername();
+        follow.username = username;
+        follow.user = User.authFind.ref(username);
+
+        follow.save();
+
+        flash("following", "Following " + username);
+
+        return ok();
+    }
+
+    @Security.Authenticated(Secured.class)
+    public Result unfollow(String username) {
+
+        Following.authFind.where()
+                .eq("following_username", User.authFind.ref(request().username()).getUsername())
+                .and()
+                .eq("username", username)
+                .delete();
+        return ok();
+    }
+
+
+    public Result addUser() {
+
+        DynamicForm requestData = formFactory.form().bindFromRequest();
+
+        if (User.authFind.byId(requestData.get("username")) != null) {
             flash("userNotAdded", "Username unavailable!");
             return redirect(routes.Application.index());
         } else {
-            userForm.get().save();
+
+            User newUser = new User();
+
+            newUser.setName(requestData.get("name"));
+            newUser.setEmail(requestData.get("email"));
+            newUser.setUsername(requestData.get("username"));
+            newUser.setPassword(requestData.get("password"));
+            newUser.setProfile_image("placeholder-user.png");
+            newUser.setWall_image("placeholder.gif");
+
+            newUser.save();
             flash("userAdded", "Successfully created account!");
             return redirect(routes.Application.login());
         }

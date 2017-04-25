@@ -1,11 +1,59 @@
-@(user: User)
+@(user: User, followers: List[Following])
 
 
 
 @homeTemplate(user, "Followers") {
 
 
+    <section>
+        <article class="follow-section">
 
+        @for(followingUser <- followers) {
+            <table class="userList">
+                <tbody>
+                    <tr>
+
+                        <td class="profile-image" rowspan="2"><img src="@routes.Application.getFullImage(followingUser.userFollower.getProfile_image)"></td>
+                        <td class="blocktd titletd">
+                            @followingUser.userFollower.username
+
+
+                            @if(user.isFollowing(followingUser.userFollower) == true) {
+                                <button id="@followingUser.userFollower.username" class="followButton">Unfollow</button>
+                            }
+
+                            @if(user.isFollowing(followingUser.userFollower) == false) {
+                                <button id="@followingUser.userFollower.username" class="followButton">Follow</button>
+                            }
+                        </td>
+
+
+                    </tr>
+
+                    <tr class="imageslide">
+                        <td class="blocktd imagetd">
+
+                            <ul>
+                            @for(image <- followingUser.userFollower.imageSlide) {
+                                <li>
+                                    <span>
+
+                                        <img class="mini-slide-img" src="@routes.Application.getThumbImage(image.thumb_image)">
+
+                                    </span>
+                                </li>
+                            }
+                            </ul>
+
+                        </td>
+
+                    </tr>
+
+                </tbody>
+            </table>
+        }
+        </article>
+    </section>r
 
 
 

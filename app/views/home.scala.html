@@ -15,7 +15,7 @@
             <ul id="main-gallery">
             @for(image <- image) {
 
-                <li>
+                <li class="galleryli">
                     <a class="full-image" href="@routes.Application.getFullImage(image.full_image)" data-lightbox="image-1">
                         <img class="thumb-image" src="@routes.Application.getThumbImage(image.thumb_image)" alt="Time">
                     </a>
@@ -25,16 +25,20 @@
             }
 
                 @for(following <- user.following) {
-
                     @for(image <- following.images) {
+                        <li class="following-box galleryli">
+                            <div id="following-image-box">
+                                <img id="following-profile-image" src="@routes.Application.getFullImage(following.user.getProfile_image)">
 
-                        <li>
-                            <a class="full-image" href="@routes.Application.getFullImage(image.full_image)" data-lightbox="image-1">
-                                <img class="thumb-image" src="@routes.Application.getThumbImage(image.thumb_image)" alt="Time">
-                            </a>
-                            <p class="image-comment">@image.comments</p>
-                        </li>
-                    }
+                            </div>
+
+                                <a class="full-image" href="@routes.Application.getFullImage(image.full_image)" data-lightbox="image-1">
+                                    <img class="thumb-image" src="@routes.Application.getThumbImage(image.thumb_image)" alt="Time">
+                                </a>
+                                <p id="following-comment" class="image-comment">@image.comments</p>
+
+                        }
+                    </li>
                 }
             </ul>
 

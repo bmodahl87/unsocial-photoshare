@@ -14,7 +14,7 @@
                     <div id="user-info">
                         <img src="@routes.Application.getFullImage(user.getProfile_image)" id="profile-image">
                         <h2>@user.name</h2>
-                        <h5>Followers: </h5>
+                        <h5>Followers: @user.followers.length</h5>
                     </div>
                     <img src="@routes.Application.getFullImage(user.getWall_image)" id="wallpaper-image">
 
@@ -27,7 +27,7 @@
 
         <article id="profile-gallery-article">
 
-            <ul id="main-gallery">
+            <ul id="main-gallery" class="profile-gallery">
             @for(image <- image) {
 
                 <li>

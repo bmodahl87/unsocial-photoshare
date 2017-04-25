@@ -9,10 +9,50 @@
 
         <article id="search-article">
 
-            @for(user <- users) {
-                <p>
-                    <a href="@routes.Application.getProfile(user.username)">@user.username</a>
-                </p>
+            @for(allUser <- users) {
+                <table class="userList">
+                    <tbody>
+                        <tr>
+
+                            <td class="profile-image" rowspan="2"><img src="@routes.Application.getFullImage(allUser.getProfile_image)"></td>
+                            <td class="blocktd titletd">
+                                @allUser.username
+
+                                @if(user.isFollowing(allUser) == true) {
+                                    <button id="@allUser.username" class="followButton">Unfollow</button>
+                                }
+
+                                @if(user.isFollowing(allUser) == false) {
+                                    <button id="@allUser.username" class="followButton">Follow</button>
+                                }
+
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="blocktd imagetd">
+
+                                <ul id="slideul">
+
+                                    @if(allUser.imageSlide.length < 1) {
+                                        <li class="slide-placeholder"></li>
+                                    }
+
+                                @for(image <- allUser.imageSlide) {
+                                    <li class="slideli">
+                                        <span>
+                                            <img class="mini-slide-img" src="@routes.Application.getThumbImage(image.thumb_image)">
+                                        </span>
+                                    </li>
+                                }
+                                </ul>
+
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+                </table>
             }
 
 

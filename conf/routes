@@ -22,8 +22,13 @@ GET     /search              controllers.Application.search
 POST    /search              controllers.Application.search
 GET     /notifications       controllers.Application.notifications
 
-GET    /user/:username      controllers.Application.getProfile(username:String)
+GET    /user/:username       controllers.Application.getProfile(username:String)
 
+GET    /follow/username=:username        controllers.Application.follow(username:String)
+
+GET    /unfollow/username=:username      controllers.Application.unfollow(username:String)
+
+GET   /deleteImage/:id       controllers.Application.deleteImage(id:Integer)
 
 # User CRUD Testing
 # ------------------

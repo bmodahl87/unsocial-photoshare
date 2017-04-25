@@ -16,6 +16,7 @@ section {
 
 #home-article {
     width: 80%;
+    display: none;
 }
 
 #home-article h2 {
@@ -140,6 +141,7 @@ input[type=text], input[type=password] {
     padding-top: 4px;
     padding-left: 4em;
     margin-left: -4em;
+
 }
 
 #homeNav ul li:hover {
@@ -151,6 +153,7 @@ input[type=text], input[type=password] {
     padding-bottom: 15px;
     padding-top: 15px;
     width: 8em;
+
 }
 
 #homeNav ul hr {
@@ -166,16 +169,17 @@ input[type=text], input[type=password] {
 
 #homeNav ul li i {
     font-size: 2em;
-    width: 2em;
+    width: 1.5em;
 }
 
-.smallLeft {
-
+.smallerRight {
+    margin-left: 1px;
 }
 
 .smallRight {
     margin-left: 3px;
 }
+
 
 .thumb-image {
     width: 14em;
@@ -186,6 +190,7 @@ input[type=text], input[type=password] {
 #main-gallery {
     width: 100%;
     margin-left: -7.5em;
+
 }
 
 #main-gallery li {
@@ -319,6 +324,7 @@ header div span img {
 #user-info h2 {
     float: left;
     margin-bottom: 0px;
+    min-width: 4em;
 }
 
 #wallpaper-image {
@@ -329,4 +335,158 @@ header div span img {
     clear: both;
     margin-top: -6.5em;
 
+
+}
+#following-profile-image {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    z-index: 99999;
+}
+
+#following-image-box {
+    width: 2em;
+    height: 2em;
+    overflow: hidden;
+    border-radius: 8em;
+    position: relative;
+    top: 7em;
+    display: block;
+    z-index: 99;
+
+}
+
+.following-box {
+    overflow: hidden;
+}
+
+.following-box a img {
+    position: relative;
+    top: -2em;
+
+}
+
+#following-comment {
+    position: relative;
+    top: -2em;
+}
+
+table {
+    width: 700px;
+    padding: 0px;
+    margin: 0px;
+    border-collapse: collapse;
+    height: 11em;
+    overflow: hidden;
+    display: block;
+    border-bottom: 2px solid rgba(42, 166, 275, .1);
+}
+
+.userList {
+    display: none;
+}
+
+.profile-gallery {
+    display: none;
+}
+
+tbody {
+    overflow: hidden;
+    height: 10em;
+    width: 900px;
+    display: block;
+    border-bottom: 4px solid rgba(42, 166, 275, .2);
+}
+
+td, tr {
+    padding: 0px;
+    margin: 0px;
+}
+
+td.profile-image {
+    width: 116px;
+    height: 116px;
+    overflow: hidden;
+}
+
+td.profile-image img {
+    width: 100%;
+    height: auto;
+    border: 2px solid rgba(42, 166, 275, .2);
+    border-bottom-color: rgba(0,0,0, .4);
+    border-radius: 35px 0 0 0;
+}
+
+td.blocktd {
+
+}
+
+td.titletd {
+    background: rgba(42, 166, 275, .2);
+    text-align: left;
+    position: relative;
+    top: 40px;
+    height: 2em;
+    padding-left: 10px;
+    font-weight: bold;
+    font-variant: small-caps;
+    font-family: Arial;
+    color: rgb(10,10,10);
+    letter-spacing: 5px;
+}
+
+td.imagetd {
+    text-align: left;
+    position: relative;
+    top: 40px;
+    left: -40px;
+    width: 700px;
+    overflow: hidden;
+}
+
+tr.imageslide {
+
+}
+
+article.follow-section, article#search-article {
+    width: 50%;
+}
+
+img.mini-slide-img {
+    width: 100%;
+}
+
+td.imagetd ul li span {
+    height: 200px;
+    width: 200px;
+    overflow: hidden;
+    display: inline-block;
+    margin: 0px;
+}
+
+td.imagetd ul li {
+    list-style-type: none;
+    display: inline-block;
+    margin-right: -6px;
+    height: 150px;
+    width: 150px;
+    overflow: hidden;
+}
+
+button.followButton {
+    float: right;
+    margin-right: 120px;
+    font-family: Arial;
+    font-variant: small-caps;
+    border: none;
+    font-size: 18px;
+    background: rgba(42, 166, 275, .2);
+    color: #ffffff;
+    text-shadow: 0 0 1px rgba(0,0,0, .2);
+}
+
+button.followButton:hover {
+    background: #ffffff;
+    color: rgba(42, 166, 275, .2);
+    cursor: pointer;
 }
