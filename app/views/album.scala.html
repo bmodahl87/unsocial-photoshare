@@ -1,0 +1,44 @@
+@(user: User, album: Album)
+
+
+
+@homeTemplate(user, "User Album") {
+
+  <section id="profile-section">
+
+    <article class="profile-gallery-article">
+      <br><br>
+      <h2 class="left">@album.name</h2>
+
+      <ul id="main-gallery" class="profile-gallery">
+
+      @for(image <- album.images) {
+
+        <li class="home-li">
+
+          <a class="full-image" href="@routes.ImageController.getFullImage(image.full_image)" data-lightbox="image-1">
+
+            <img class="thumb-image home-thumb" src="@routes.ImageController.getThumbImage(image.thumb_image)" alt="Time">
+          </a>
+
+          <p class="image-comment home-comment">Album: @image.album.name </p>
+        </li>
+      }
+
+
+
+      </ul>
+
+    </article>
+
+
+
+
+  </section>
+
+
+
+
+
+
+}

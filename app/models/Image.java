@@ -20,9 +20,15 @@ public class Image extends Model {
     public String comments;
 
     @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(nullable=true)
     public User user;
 
     @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(nullable=true)
+    public Album album;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(nullable=true)
     public Following following;
 
     public static Find<String, Image> find = new Find<String, Image>(){};

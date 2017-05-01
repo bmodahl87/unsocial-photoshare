@@ -5,43 +5,37 @@
 # An example controller showing a sample home page
 GET     /                    controllers.Application.index
 
-GET     /login               controllers.Application.login()
-POST    /login               controllers.Application.authenticate()
+GET     /login               controllers.Login.login()
+POST    /login               controllers.Login.authenticate()
 
-GET     /logout              controllers.Application.logout()
+GET     /logout              controllers.Login.logout()
 
 GET     /home                controllers.Application.home
-GET     /thumbImage          controllers.Application.getThumbImage(image)
-GET     /fullImage           controllers.Application.getFullImage(image)
+GET     /thumbImage          controllers.ImageController.getThumbImage(image)
+GET     /fullImage           controllers.ImageController.getFullImage(image)
 GET     /followers           controllers.Application.followers
 GET     /following           controllers.Application.following
 GET     /profileHome         controllers.Application.profileHome
 GET     /upload              controllers.Application.upload
-POST    /upload              controllers.Application.imageUpload
+POST    /upload              controllers.ImageController.imageUpload
+POST    /uploadWallpaper     controllers.ImageController.profileImageUpload
+POST    /uploadProfile       controllers.ImageController.wallpaperImageUpload
 GET     /search              controllers.Application.search
 POST    /search              controllers.Application.search
 GET     /notifications       controllers.Application.notifications
+GET     /album/:id           controllers.Application.album(id:Integer)
 
 GET    /user/:username       controllers.Application.getProfile(username:String)
 
-GET    /follow/username=:username        controllers.Application.follow(username:String)
+GET    /follow/username=:username        controllers.UserController.follow(username:String)
 
-GET    /unfollow/username=:username      controllers.Application.unfollow(username:String)
+GET    /unfollow/username=:username      controllers.UserController.unfollow(username:String)
 
-GET   /deleteImage/:id       controllers.Application.deleteImage(id:Integer)
+GET   /deleteImage/:id       controllers.ImageController.deleteImage(id:Integer)
 
 # User CRUD Testing
 # ------------------
-POST    /user                controllers.Application.addUser()
-
-GET     /user/:id            controllers.Application.editUser(id:Integer)
-POST    /user/:id            controllers.Application.updateUser(id:Integer)
-
-
-GET    /user/delete/:id      controllers.Application.deleteUser(id:Integer)
-
-GET     /users               controllers.Application.getUsers
-
+POST    /user                controllers.UserController.addUser()
 
 
 # -----------------------------------------

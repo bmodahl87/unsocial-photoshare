@@ -14,9 +14,9 @@
                     <tbody>
                         <tr>
 
-                            <td class="profile-image" rowspan="2"><img src="@routes.Application.getFullImage(allUser.getProfile_image)"></td>
+                            <td class="profile-image" rowspan="2"><img src="@routes.ImageController.getFullImage(allUser.getProfile_image)"></td>
                             <td class="blocktd titletd">
-                                @allUser.username
+                                <a href="@routes.Application.getProfile(allUser.username)">@allUser.username</a>
 
                                 @if(user.isFollowing(allUser) == true) {
                                     <button id="@allUser.username" class="followButton">Unfollow</button>
@@ -41,7 +41,7 @@
                                 @for(image <- allUser.imageSlide) {
                                     <li class="slideli">
                                         <span>
-                                            <img class="mini-slide-img" src="@routes.Application.getThumbImage(image.thumb_image)">
+                                            <img class="mini-slide-img" src="@routes.ImageController.getThumbImage(image.thumb_image)">
                                         </span>
                                     </li>
                                 }

@@ -9,24 +9,50 @@
 
 
 
-            <form action="@routes.Application.imageUpload" method="post" enctype="multipart/form-data">
-                <img id="imageUpload" src="@routes.Assets.versioned("images/upload-placeholder.svg")">
-                <br>
-                <br>
+            <form action="@routes.ImageController.imageUpload" method="post" enctype="multipart/form-data">
+
                 <label id="uploadLabel" class="custom-file-upload">
-                    <input type="file" name="picture" id="inputFile"/>
-                    <i class="fa fa-cloud-upload"></i> Select Image
+                    <input type="file" multiple="multiple" name="files[]" id="files"/>
+                    <i class="fa fa-cloud-upload"></i> Select Image(s)
+                </label>
+                <label id ="album-select">
+                    Choose Album:
+                    <select name="albums">
+                        @for(albums <- user.albums) {
+
+                            <option value="@albums.id">@albums.name</option>
+
+                        }
+
+                        <option value="00100110101">- none -</option>
+
+                    </select>
+
                 </label>
 
-                <input type="text"  placeholder="Comment..." class="form-input" id="comments" name="comment">
+                <input type="text"  placeholder="or create new..." class="form-input" id="new-album" name="album">
+
+                <br>
+
+                <input type="text"  placeholder="Album description..." class="form-input" id="comments" name="description">
 
                 <input type="submit" class="form-input" value="Upload" id="uploadButton">
 
+
+                <div id="upload-box-outside">
+                    <p id="upload-box-inside">Select Images Above / Drop Images Here</p>
+                    <output id="list"></output>
+                </div>
+
+
             </form>
 
-        </article>
-    </section>
 
+
+        </article>
+
+
+    </section>
 
 
 

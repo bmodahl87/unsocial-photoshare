@@ -4,19 +4,17 @@
 
 @homeTemplate(user, "Following") {
 
-
-
     <section >
         <article class="follow-section">
-
+            <h2 class="left">Following</h2>
                 @for(followingUser <- user.following) {
                     <table class="userList">
                         <tbody>
                     <tr>
 
-                        <td class="profile-image" rowspan="2"><img src="@routes.Application.getFullImage(followingUser.user.getProfile_image)"></td>
+                        <td class="profile-image" rowspan="2"><img src="@routes.ImageController.getFullImage(followingUser.user.getProfile_image)"></td>
                         <td class="blocktd titletd">
-                            @followingUser.username
+                            <a href="@routes.Application.getProfile(followingUser.username)">@followingUser.username</a>
                             <button id="@followingUser.username" type="button" class="followButton">Unfollow</button>
                         </td>
                     </tr>
@@ -25,11 +23,14 @@
                         <td class="blocktd imagetd">
 
                             <ul>
+                                @if(followingUser.user.imageSlide.length < 1) {
+                                    <li class="slide-placeholder"></li>
+                                }
                                 @for(image <- followingUser.user.imageSlide) {
                                     <li>
                                         <span>
 
-                                            <img class="mini-slide-img" src="@routes.Application.getThumbImage(image.thumb_image)">
+                                            <img class="mini-slide-img" src="@routes.ImageController.getThumbImage(image.thumb_image)">
 
                                         </span>
                                     </li>

@@ -26,6 +26,16 @@ public class User extends Model {
     @OneToMany(mappedBy = "user", cascade= CascadeType.ALL)
     public List<Image> images = new ArrayList<>();
 
+    @OneToMany(mappedBy = "user", cascade= CascadeType.ALL)
+    public List<Notification> notifications = new ArrayList<>();
+
+    public List<Notification> newNotifications() {
+        return Notification.find.where().eq("has_been_viewed", false).and().eq("user_username", username).findList();
+    }
+
+    @OneToMany(mappedBy = "user", cascade= CascadeType.ALL)
+    public List<Album> albums = new ArrayList<>();
+
     public List<Image> imageSlide() {
         return Image.find.setMaxRows(4).where().eq("username", username).findList();
     }
@@ -66,6 +76,17 @@ public class User extends Model {
                 .eq("password", password).findUnique();
     }
 
+    public User() {}
+
+
+    public User(String username, String name, String password, String email) {
+        this.username = username;
+        this.name = name;
+        this.password = password;
+        this.email = email;
+        this.profile_image = "placeholder-user.png";
+        this.wall_image = "placeholder.gif";
+    }
 
     /**
      * Gets first name.

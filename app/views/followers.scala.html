@@ -7,15 +7,15 @@
 
     <section>
         <article class="follow-section">
-
+            <h2 class="left">Followers</h2>
         @for(followingUser <- followers) {
             <table class="userList">
                 <tbody>
                     <tr>
 
-                        <td class="profile-image" rowspan="2"><img src="@routes.Application.getFullImage(followingUser.userFollower.getProfile_image)"></td>
+                        <td class="profile-image" rowspan="2"><img src="@routes.ImageController.getFullImage(followingUser.userFollower.getProfile_image)"></td>
                         <td class="blocktd titletd">
-                            @followingUser.userFollower.username
+                            <a href="@routes.Application.getProfile(followingUser.username)">@followingUser.userFollower.username</a>
 
 
                             @if(user.isFollowing(followingUser.userFollower) == true) {
@@ -34,11 +34,14 @@
                         <td class="blocktd imagetd">
 
                             <ul>
+                            @if(followingUser.userFollower.imageSlide.length < 1) {
+                                <li class="slide-placeholder"></li>
+                            }
                             @for(image <- followingUser.userFollower.imageSlide) {
                                 <li>
                                     <span>
 
-                                        <img class="mini-slide-img" src="@routes.Application.getThumbImage(image.thumb_image)">
+                                        <img class="mini-slide-img" src="@routes.ImageController.getThumbImage(image.thumb_image)">
 
                                     </span>
                                 </li>

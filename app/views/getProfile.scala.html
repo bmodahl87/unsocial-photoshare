@@ -12,11 +12,17 @@
                 <header id="profile-header">
 
                     <div id="user-info">
-                        <img src="@routes.Application.getFullImage(user.getProfile_image)" id="profile-image">
+                        <div id="profile-img-box">
+                            <img src="@routes.ImageController.getThumbImage(user.getProfile_image)" id="profile-image">
+                        </div>
+
                         <h2>@user.name</h2>
                         <h5>Followers: @user.followers.length</h5>
+
                     </div>
-                    <img src="@routes.Application.getFullImage(user.getWall_image)" id="wallpaper-image">
+
+                    <img src="@routes.ImageController.getFullImage(user.getWall_image)" id="wallpaper-image">
+
 
                 </header>
             </div>
@@ -25,18 +31,59 @@
 
 
 
-        <article id="profile-gallery-article">
+        <article class="profile-gallery-article">
 
-            <ul id="main-gallery" class="profile-gallery">
-            @for(image <- image) {
+            <h2 class="left">Albums</h2>
 
-                <li>
-                    <a class="full-image" href="@routes.Application.getFullImage(image.full_image)" data-lightbox="image-1">
-                        <img class="thumb-image" src="@routes.Application.getThumbImage(image.thumb_image)" alt="Time">
-                    </a>
-                    <p class="image-comment">@image.comments</p>
+            @if(user.albums.length > 0) {
+                <ul id="album-gallery" class="profile-gallery">
+                @for(album <- user.albums) {
+
+                    <li class="home-li">
+
+                        <a class="full-image" href="@routes.Application.album(album.id)">
+
+                            @if(album.images.length > 0) {
+                                <img class="thumb-image home-thumb" src="@routes.ImageController.getThumbImage(album.images.get(0).thumb_image)" alt="Time">
+                            }
+
+                            @if(album.images.length < 1) {
+                                <img class="thumb-image home-thumb" src="@routes.ImageController.getFullImage(user.getWall_image)" alt="Time">
+                                }
+
+                        </a>
+
+                        <p class="image-comment home-comment">@album.name </p>
+                    </li>
+
+                }
+                </ul>
+            }
+        </article>
+        <br>
+        <article class="profile-gallery-article">
+
+            <h2 class="left">Photos</h2>
+
+            <ul id="main-profile-gallery" class="profile-gallery">
+
+            @for(image <- user.images) {
+
+                <li class="home-li">
+
+                    <div class="home-li-inside2">
+                        <a class="full-image" href="@routes.ImageController.getFullImage(image.full_image)" data-lightbox="image-1">
+
+                            <img class="thumb-image home-thumb" src="@routes.ImageController.getThumbImage(image.thumb_image)" alt="Time">
+                        </a>
+
+
+                    </div>
                 </li>
             }
+
+
+
             </ul>
 
         </article>
@@ -45,6 +92,7 @@
 
 
     </section>
+
 
 
 

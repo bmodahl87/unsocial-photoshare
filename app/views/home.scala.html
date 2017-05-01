@@ -15,11 +15,15 @@
             <ul id="main-gallery">
             @for(image <- image) {
 
-                <li class="galleryli">
-                    <a class="full-image" href="@routes.Application.getFullImage(image.full_image)" data-lightbox="image-1">
-                        <img class="thumb-image" src="@routes.Application.getThumbImage(image.thumb_image)" alt="Time">
-                    </a>
-                    <p class="image-comment">@image.comments</p>
+                <li class="following-box galleryli">
+                    <table class="">
+                        <tr class="top"><td> <div id="following-image-box"> <img class="following-profile-image" src="@routes.ImageController.getFullImage(user.getProfile_image)"> </div><div class="user-title">@user.username</div></td></tr>
+                        <tr class="middle"><td><a class="full-following-image" href="@routes.ImageController.getFullImage(image.full_image)" data-lightbox="image-1">
+                            <img class="thumb-image" src="@routes.ImageController.getThumbImage(image.thumb_image)" alt="Time">
+                        </a></td></tr>
+                            <tr class="bottom"><td><div class="home-album-name">Uploaded: </div></td></tr>
+
+                    </table>
                 </li>
 
             }
@@ -27,15 +31,14 @@
                 @for(following <- user.following) {
                     @for(image <- following.images) {
                         <li class="following-box galleryli">
-                            <div id="following-image-box">
-                                <img id="following-profile-image" src="@routes.Application.getFullImage(following.user.getProfile_image)">
+                            <table>
+                                <tr class="top"><td> <div id="following-image-box"> <img class="following-profile-image" src="@routes.ImageController.getFullImage(following.user.getProfile_image)"> </div><div class="user-title">@following.username</div></td></tr>
+                                <tr class="middle"><td><a class="full-following-image" href="@routes.ImageController.getFullImage(image.full_image)" data-lightbox="image-1">
+                                    <img class="thumb-image" src="@routes.ImageController.getThumbImage(image.thumb_image)" alt="Time">
+                                </a></td></tr>
+                                <tr class="bottom"><td><p class="home-album-name">Uploaded: </p></td></tr>
 
-                            </div>
-
-                                <a class="full-image" href="@routes.Application.getFullImage(image.full_image)" data-lightbox="image-1">
-                                    <img class="thumb-image" src="@routes.Application.getThumbImage(image.thumb_image)" alt="Time">
-                                </a>
-                                <p id="following-comment" class="image-comment">@image.comments</p>
+                            </table>
 
                         }
                     </li>

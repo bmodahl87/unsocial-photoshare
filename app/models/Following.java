@@ -10,7 +10,7 @@ import java.util.List;
  * Created by bmodahl on 4/5/17.
  */
 @Entity
-public class Following extends Model{
+public class Following extends Model {
 
 
     @Id
@@ -19,6 +19,7 @@ public class Following extends Model{
     public String following_username;
 
     @ManyToOne(cascade= CascadeType.ALL)
+    @JoinColumn(nullable=true)
     public User user;
 
     @OneToMany(mappedBy = "following", cascade= CascadeType.ALL)
@@ -39,6 +40,14 @@ public class Following extends Model{
     public static Find<Integer, Following> find = new Find<Integer, Following>(){};
 
     public static Find<String, Following> authFind = new Find<String, Following>(){};
+
+    public Following(){}
+
+    public Following(String username, String following_username, User user) {
+        this.username = username;
+        this.following_username = following_username;
+        this.user = user;
+    }
 
 
 }

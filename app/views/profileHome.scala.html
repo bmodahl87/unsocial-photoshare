@@ -13,7 +13,17 @@
 
                     <div id="user-info">
                         <div id="profile-img-box">
-                            <img src="@routes.Application.getFullImage(user.getProfile_image)" id="profile-image">
+                            <img src="@routes.ImageController.getThumbImage(user.getProfile_image)" id="profile-image">
+                            <form id="profile-image-form" action="@routes.ImageController.profileImageUpload" method="post" enctype="multipart/form-data">
+
+                                <label id="uploadLabel" class="custom-file-upload profile-upload">
+                                    <input type="file" name="picture" id="inputFile"/>
+                                    <i class="fa fa-cloud-upload"></i> Select Image
+                                </label>
+
+                                <button type="submit" class="profile-button"><i class="fa fa-download" aria-hidden="true"></i></button>
+
+                            </form>
                         </div>
 
                             <h2>@user.name</h2>
@@ -21,7 +31,18 @@
 
                         </div>
 
-                    <img src="@routes.Application.getFullImage(user.getWall_image)" id="wallpaper-image">
+                    <img src="@routes.ImageController.getFullImage(user.getWall_image)" id="wallpaper-image">
+                    <form id="wallpaper-image-form" action="@routes.ImageController.wallpaperImageUpload" method="post" enctype="multipart/form-data">
+                        <br>
+                        <br>
+                        <label id="uploadLabel" class="custom-file-upload">
+                            <input type="file" name="picture" id="inputFile"/>
+                            <i class="fa fa-cloud-upload"></i> Select Image
+                        </label>
+
+                        <button type="submit" class="wallpaper-button"><i class="fa fa-download" aria-hidden="true"></i></button>
+
+                    </form>
 
                 </header>
             </div>
@@ -30,20 +51,54 @@
 
 
 
-        <article id="profile-gallery-article">
+        <article class="profile-gallery-article">
 
-            <ul id="main-gallery" class="profile-gallery">
+            <h2 class="left">Albums</h2>
+
+            @if(user.albums.length > 0) {
+                <ul id="album-gallery" class="profile-gallery">
+                    @for(album <- user.albums) {
+
+                        <li class="home-li-album">
+
+                            <a class="full-image" href="@routes.Application.album(album.id)">
+
+                                @if(album.images.length > 0) {
+                                    <img class="thumb-image home-thumb" src="@routes.ImageController.getThumbImage(album.images.get(0).thumb_image)" alt="Time">
+                                }
+
+                                @if(album.images.length < 1) {
+                                    <img class="thumb-image home-thumb" src="@routes.ImageController.getFullImage(user.getWall_image)" alt="Time">
+                                }
+
+                            </a>
+
+                            <p class="image-comment home-comment">@album.name <button type="button" id="@album.id" class="deleteButton"><i class="fa fa-trash fa-4x" aria-hidden="true"></i></button> </p>
+                        </li>
+
+                    }
+                </ul>
+            }
+        </article>
+            <br>
+        <article class="profile-gallery-article">
+
+            <h2 class="left">Photos</h2>
+
+            <ul id="main-profile-gallery" class="profile-gallery">
 
             @for(image <- user.images) {
 
-                <li>
-                    <button type="button" id="@image.id">X</button>
-                    <a class="full-image" href="@routes.Application.getFullImage(image.full_image)" data-lightbox="image-1">
+                <li class="home-li">
+                    <div class="home-li-inside">
+                        <button type="button" id="@image.id" class=" deleteButtonImage"><i class="fa fa-trash fa-4x" aria-hidden="true"></i></button>
+                        <a class="full-image" href="@routes.ImageController.getFullImage(image.full_image)" data-lightbox="image-1">
 
-                        <img class="thumb-image" src="@routes.Application.getThumbImage(image.thumb_image)" alt="Time">
-                    </a>
+                            <img class="thumb-image home-thumb" src="@routes.ImageController.getThumbImage(image.thumb_image)" alt="Time">
+                        </a>
 
-                    <p class="image-comment">@image.comments</p>
+
+                    </div>
                 </li>
             }
 

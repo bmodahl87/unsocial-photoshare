@@ -1,6 +1,6 @@
 name := """unsocial-photoshare"""
 
-version := "1.0-SNAPSHOT"
+version := "1.99-SNAPSHOT"
 
 lazy val root = (project in file(".")).enablePlugins(PlayJava, PlayEbean)
 
@@ -16,4 +16,4 @@ libraryDependencies ++= Seq(
 )
 
 
-fork in run := true
+fork in run := false

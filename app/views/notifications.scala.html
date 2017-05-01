@@ -4,7 +4,25 @@
 
 @homeTemplate(user, "Notifications") {
 
+        <section>
 
+            <article>
+
+                <ul>
+
+                    @for(notification <- user.notifications) {
+
+                        <li>@notification.message</li>
+
+                    }
+
+                </ul>
+
+
+            </article>
+
+
+        </section>
 
 
 

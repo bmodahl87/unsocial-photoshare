@@ -24,15 +24,16 @@ section {
     margin-left: -2em;
 }
 
-#profile-gallery-article {
+.profile-gallery-article {
     margin: 2em auto;
     width: 80%;
+    clear: both;
 
 }
 
 #uploadArticle {
     width: 80%;
-    margin: 0 auto;
+    margin: 6% auto;
 }
 
 #profile-section, #home-section {
@@ -68,7 +69,7 @@ section {
     border-bottom: 1px solid #e1e1e1;
     text-align: center;
     box-shadow: 0 2px 8px #c2c2c2;
-    z-index:999;
+    z-index:9999;
 }
 
 #sign-in, #sign-up {
@@ -180,37 +181,83 @@ input[type=text], input[type=password] {
     margin-left: 3px;
 }
 
+.full-following-image {
+
+}
+
+.home-album-name {
+
+}
 
 .thumb-image {
-    width: 14em;
-    height: auto;
+    width: 100%;
+    z-index: 1;
     overflow: hidden;
 }
 
-#main-gallery {
+.portrait {
+    width: 50%;
+}
+
+#main-gallery, #album-gallery, #main-profile-gallery {
     width: 100%;
     margin-left: -7.5em;
 
 }
 
-#main-gallery li {
+#main-gallery li, #album-gallery li {
     list-style: none;
     float: left;
     margin: 1em;
     height: 13.5em;
+    width: 13.5em;
+    background: rgba(20,20,20,.7);
     box-shadow: 0 3px 6px rgba(50,50,50, .2);
-    overflow: visible;
+    overflow: hidden;
+    color: #ffffff;
+    border-radius: 15px;
 
 }
 
-#main-gallery li p {
-    width: 13.5em;
+#main-profile-gallery li {
+    list-style: none;
+    float: left;
+    margin: 1em;
+    width: 14em;
+    height: 8em;
+    background: rgba(20,20,20,.7);
+    box-shadow: 0 3px 6px rgba(50,50,50, .2);
+    overflow: hidden;
+}
+
+.home-li {
     height: 5em;
-    background: #ffffff;
-    margin-top: -2.7em;
+}
+
+.home-li-inside, .home-li-inside2 {
+    display: block;
+    height: 5em;
+}
+
+.home-li-inside a img {
+    margin-top: -48px;
+}
+
+.home-li-inside2 a img {
+    margin-top: 0px;
+}
+
+.home-li-album a {
+
+    display: block;
+}
+
+#main-gallery li p, #album-gallery li p {
+    width: 13.5em;
+    height: 2em;
     text-align: left;
-    padding-top: .5em;
     padding-left: .5em;
+    z-index: 99;
 }
 
 input[type="file"] {
@@ -237,6 +284,11 @@ input[type="file"] {
 
 #comments {
     width: 20em;
+}
+
+#new-album {
+    width: 10em;
+    font-size: 16px;
 }
 
 #userInfo {
@@ -300,7 +352,7 @@ header div span img {
     display: block;
     float: left;
     margin-bottom: 2px;
-    border-radius: 35px;
+    border-radius: 55px;
     border: 2px solid #ffffff;
     width: 6em;
     height: 6em;
@@ -315,16 +367,24 @@ header div span img {
     left: 1em;
     float: left;
     clear: both;
-    z-index: 9999;
+    z-index: 99;
     width: auto;
     display: inline-block;
     text-align: left;
+    color: #ffffff;
+    font-weight: bold;
 }
 
 #user-info h2 {
     float: left;
     margin-bottom: 0px;
     min-width: 4em;
+    color: #ffffff;
+    font-weight: bolder;
+}
+
+#user-info h5 {
+    color: #eeeeee;
 }
 
 #wallpaper-image {
@@ -337,7 +397,7 @@ header div span img {
 
 
 }
-#following-profile-image {
+.following-profile-image {
     width: 100%;
     margin: 0;
     padding: 0;
@@ -349,29 +409,17 @@ header div span img {
     height: 2em;
     overflow: hidden;
     border-radius: 8em;
-    position: relative;
-    top: 7em;
-    display: block;
+    display: inline-block;
     z-index: 99;
-
+    float: left;
 }
 
-.following-box {
-    overflow: hidden;
+.user-title {
+    float: left;
+    margin-left: 15px;
 }
 
-.following-box a img {
-    position: relative;
-    top: -2em;
-
-}
-
-#following-comment {
-    position: relative;
-    top: -2em;
-}
-
-table {
+table.userList {
     width: 700px;
     padding: 0px;
     margin: 0px;
@@ -382,15 +430,11 @@ table {
     border-bottom: 2px solid rgba(42, 166, 275, .1);
 }
 
-.userList {
-    display: none;
-}
-
 .profile-gallery {
     display: none;
 }
 
-tbody {
+.userList tbody {
     overflow: hidden;
     height: 10em;
     width: 900px;
@@ -489,4 +533,145 @@ button.followButton:hover {
     background: #ffffff;
     color: rgba(42, 166, 275, .2);
     cursor: pointer;
+}
+
+.deleteButton {
+    display: inline-block;
+    margin-top: -160px;
+    margin-left: 160px;
+    z-index: 99;
+    color: rgba(280,280,280, .3);
+}
+
+.deleteButtonImage {
+    position: relative;
+    top: 0px;
+    left: 90px;
+    color: rgba(280,280,280, .3);
+}
+
+.deleteButton:hover, .deleteButtonImage:hover {
+    color: rgba(280,280,280, .8);
+    cursor: pointer;
+}
+
+.fa-trash {
+    background: rgba(0,0,0,.3);
+    border-radius: 5px;
+}
+
+#profile-image-form {
+    z-index: 200;
+    display: block;
+    position: absolute;
+    bottom: 0;
+}
+
+.profile-upload {
+    width: 5em;
+    font-size: 14px;
+    border-radius: 30px;
+    margin-bottom: 20px;
+}
+
+.profile-button {
+    font-size: 14px;
+    display: block;
+    position: absolute;
+    left: 55px;
+    bottom: 25px;
+    height: 20px;
+    width: 30px;
+    background: rgba(0,0,0, .1);
+    border: none;
+}
+
+.profile-button:hover {
+    background: rgba(0,0,0, .3);
+    cursor: pointer;
+    color: black;
+}
+
+#wallpaper-image-form {
+    z-index: 200;
+    position: absolute;
+    top: 120px;
+    margin-left: 25%;
+    background: rgba(280,280,280, .1);
+    height: 120px;
+    width: 300px;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+#wallpaper-image-form:hover {
+    background: rgba(280,280,280, .4);
+    color: black;
+}
+
+.wallpaper-button {
+    background: rgba(0,0,0, .1);
+    border: none;
+    font-size: 20px;
+}
+
+.wallpaper-button:hover {
+    background: rgba(0,0,0, .3);
+    cursor: pointer;
+}
+
+#upload-box-outside {
+    width: 60%;
+    height: 200px;
+    border: 2px solid rgba(20,20,20,.5);
+    margin: 10px auto;
+
+}
+
+#upload-box-inside {
+    width: 70%;
+    height: 70px;
+    border: 2px dashed rgba(20,20,20,.3);
+    margin: 5% auto;
+    padding-top: 7%;
+    border-radius: 45px;
+    font-family: Arial;
+    color: rgba(20,20,20,.3);
+}
+
+.thumb {
+    height: 75px;
+    border: 1px solid #000;
+    margin: 10px 5px 0 0;
+}
+
+#list {
+    display: block;
+    position: relative;
+    top: 75px;
+}
+
+#notifications {
+    background: rgba(42, 166, 275, .2);
+    color: #ffffff;
+    border-radius: 25px;
+    width: 40px;
+    height: 30px;
+    display: inline-block;
+    text-align: center;
+    text-shadow: 1px 1px 1px rgba(0,0,0,.2);
+}
+
+.left {
+    text-align: left;
+    margin-left: -60px;
+}
+
+.middle td {
+    display: block;
+    height: 8em;
+    overflow: hidden;
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
 }

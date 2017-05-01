@@ -31,20 +31,20 @@
             </p>
         }
 
-        <form id="sign-up" action="@routes.Application.addUser()" method="post">
+        <form id="sign-up" action="@routes.UserController.addUser()" method="post">
 
             <h2>Sign-Up!</h2>
 
             <input type="text" class="form-input" name="name" placeholder="Name" /><br>
             <input type="text" class="form-input" name="email" placeholder="Email" /><br>
             <input type="text" class="form-input" name="username" placeholder="Username" /><br>
-            <input type="text" class="form-input" name="password" placeholder="Password" /><br>
+            <input type="password" class="form-input" name="password" placeholder="Password" /><br>
             <input type="submit" class="form-input" value="Sign-Up!">
         </form>
 
         <hr><br>
 
-        <h5>Or click <a href="@routes.Application.login()">here</a> to login.</h5>
+        <h5>Or click <a href="@routes.Login.login()">here</a> to login.</h5>
 
     </article>
 

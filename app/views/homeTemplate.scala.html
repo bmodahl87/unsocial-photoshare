@@ -30,10 +30,10 @@
 
 
       <div id="prof-container" class="dropdown">
-        <span><img src="@routes.Application.getFullImage(user.getProfile_image)" ></span>
+        <span><img src="@routes.ImageController.getFullImage(user.getProfile_image)" ></span>
         <div class="dropdown-content">
           <p id="userInfo">Logged in as: @user.getUsername</p><br>
-          <a href="@routes.Application.logout()" id="logout" >Logout</a>
+          <a href="@routes.Login.logout()" id="logout" >Logout</a>
         </div>
 
       </div>
@@ -42,13 +42,26 @@
     <nav id="homeNav">
       <ul>
         <li><a href="@routes.Application.home()"><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
-        <li><a href="@routes.Application.profileHome()"><i class="fa fa-user smallRight" aria-hidden="true"></i><span class="smallLeft">Profile</span></a></li>
+        <li><a href="@routes.Application.profileHome()"> <i class="fa fa-user smallRight" aria-hidden="true"></i><span class="smallLeft">Profile</span></a></li>
         <li><a href="@routes.Application.following()"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Following</a></li>
         <li><a href="@routes.Application.followers()"><i class="fa fa-user-circle" aria-hidden="true"></i> Followers</a></li>
         <li><a href="@routes.Application.upload()"><i class="fa fa-upload smallerRight" aria-hidden="true"></i> Upload</a></li>
-        <li><a href="@routes.Application.notifications()"><i class="fa fa-bell" aria-hidden="true"></i> Notifications</a></li>
+        <li>
+          <a href="@routes.Application.notifications()">
+            <i class="fa fa-bell" aria-hidden="true"></i>Notifications
+
+            @if(user.newNotifications.length > 0) {
+
+              <span id="notifications">@user.newNotifications.length</span>
+
+            }
+
+          </a>
+        </li>
+      <!--
         <hr>
-        <li><a href="@routes.Application.notifications()"><i class="fa fa-gear smallRight" aria-hidden="true"></i>Settings</a></li>
+        <li><a href="routes.Application.notifications()"><i class="fa fa-gear smallRight" aria-hidden="true"></i>Settings</a></li>
+      -->
       </ul>
     </nav>
 
