@@ -27,7 +27,7 @@ My overall goal for this project is to end up with a shared media application wi
   * Store users and roles
   * Store Image reference
 * Web Services or APIs
-  * Still considering choices...
+  * Image Resizing ( Team Project )
 * Bootstrap
 * Logging
   * Configurable logging using Log4J. In production, only errors will normally be logged, but logging at a debug level can be turned on to facilitate trouble-shooting.

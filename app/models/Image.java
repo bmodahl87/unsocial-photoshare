@@ -3,6 +3,8 @@ package models;
 import com.avaje.ebean.Model;
 
 import javax.persistence.*;
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 
@@ -18,6 +20,7 @@ public class Image extends Model {
     public String full_image;
     public String thumb_image;
     public String comments;
+    public LocalDate date = LocalDate.now();
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(nullable=true)

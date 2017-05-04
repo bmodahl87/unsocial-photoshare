@@ -31,7 +31,9 @@ GET    /follow/username=:username        controllers.UserController.follow(usern
 
 GET    /unfollow/username=:username      controllers.UserController.unfollow(username:String)
 
-GET   /deleteImage/:id       controllers.ImageController.deleteImage(id:Integer)
+GET   /ldlkfjdf9i93j30sd0fj309sdfj321-2233jfj39-dfd8/:id       controllers.ImageController.deleteImage(id:Integer)
+
+GET   /495848-578f83ff-egg8379-yhf398-8uyfh877779h/:id       controllers.ImageController.deleteAlbum(id:Integer)
 
 # User CRUD Testing
 # ------------------

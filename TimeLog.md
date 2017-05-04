@@ -41,3 +41,8 @@
 | 4/21/17| Worked on views | 4 | added follow button |
 | 4/23/17| Follow button working with AJAX | 5 |  |
 | 4/24/17| Implemented JQuery effects and more AJAX | 7 |  |
+| 4/28/17| Worked on CSS | 6 |  |
+| 4/29/17| Refactored code | 3 |  |
+| 4/30/17| Added Albums, Research on Web sockets for notifications | 7 |  |
+| 5/1/17| Testing, Logging, fixing bugs, presentation powerpoint, pushed to aws | 8 |  |
+| 5/4/17| Testing | 7 | Been trying to figure out testing, but keep running into blockers, most methods require a logged in user |

@@ -96,26 +96,26 @@ public class Application extends Controller {
 
     // Lists used for views:
 
-    private List<Image> imageList() {
+    protected List<Image> imageList() {
         return Image.find.where().eq("username", request().username()).findList();
     }
 
-    private List<User> userList() {
+    protected List<User> userList() {
 
         DynamicForm requestData = formFactory.form().bindFromRequest();
 
         return User.authFind.where().contains("username", requestData.get("search")).findList();
     }
 
-    private List<Following> followerList() {
+    protected List<Following> followerList() {
         return Ebean.find(Following.class).where().eq("username", request().username()).findList();
     }
 
-    private List<Following> followingList() {
+    protected List<Following> followingList() {
         return Ebean.find(Following.class).where().eq("following_username", request().username()).findList();
     }
 
-    private User currentUser() {
+    protected User currentUser() {
         return User.authFind.ref(request().username());
     }
 

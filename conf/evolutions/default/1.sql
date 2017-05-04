@@ -6,6 +6,7 @@
 create table album (
   id                            integer auto_increment not null,
   name                          varchar(255),
+  description                   varchar(255),
   user_username                 varchar(255),
   constraint pk_album primary key (id)
 );
@@ -24,6 +25,7 @@ create table image (
   full_image                    varchar(255),
   thumb_image                   varchar(255),
   comments                      varchar(255),
+  date                          date,
   user_username                 varchar(255),
   album_id                      integer,
   following_following_id        integer,

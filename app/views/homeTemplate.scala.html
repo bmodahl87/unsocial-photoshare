@@ -30,7 +30,7 @@
 
 
       <div id="prof-container" class="dropdown">
-        <span><img src="@routes.ImageController.getFullImage(user.getProfile_image)" ></span>
+        <span><img src="@routes.ImageController.getThumbImage(user.getProfile_image)" ></span>
         <div class="dropdown-content">
           <p id="userInfo">Logged in as: @user.getUsername</p><br>
           <a href="@routes.Login.logout()" id="logout" >Logout</a>

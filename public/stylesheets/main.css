@@ -57,6 +57,34 @@ section {
 
 }
 
+#notification-article {
+    width: 30%;
+    display: none;
+}
+
+#notification-article ul {
+    width: 100%;
+}
+
+#notification-article ul li {
+    list-style: none;
+    font-family: Arial;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#notification-article ul li:nth-child(even) {
+    background: rgba(20,20,20,.1);
+    border-bottom: 2px solid rgba(20,20,20,.1);
+    border-top: 2px solid rgba(20,20,20,.1);
+}
+
+#notification-article ul li:nth-child(odd) {
+    background: rgba(42, 166, 275, .1);
+    border-bottom: 2px solid rgba(42, 166, 275, .1);
+    border-top: 2px solid rgba(42, 166, 275, .1);
+}
+
 #main-top {
     position: fixed;
     display: inline-block;
@@ -212,7 +240,7 @@ input[type=text], input[type=password] {
     height: 13.5em;
     width: 13.5em;
     background: rgba(20,20,20,.7);
-    box-shadow: 0 3px 6px rgba(50,50,50, .2);
+    box-shadow: 0 3px 6px rgba(50,50,50, .4);
     overflow: hidden;
     color: #ffffff;
     border-radius: 15px;
@@ -417,6 +445,10 @@ header div span img {
 .user-title {
     float: left;
     margin-left: 15px;
+}
+
+table {
+    border-collapse: collapse;
 }
 
 table.userList {
@@ -667,11 +699,21 @@ button.followButton:hover {
     margin-left: -60px;
 }
 
+
 .middle td {
     display: block;
-    height: 8em;
+    height: 7em;
     overflow: hidden;
     width: 100%;
     text-align: center;
     margin: 0 auto;
+}
+
+.bottom td {
+    display: block;
+    height: 3em;
+}
+
+.bottom td p {
+
 }

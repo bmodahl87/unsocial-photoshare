@@ -15,6 +15,7 @@ public class Album extends Model {
     @Id
     public int id;
     public String name;
+    public String description;
 
 
     @ManyToOne(cascade= CascadeType.ALL)

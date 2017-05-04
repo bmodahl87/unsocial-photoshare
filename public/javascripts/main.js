@@ -1,8 +1,15 @@
 $(window).load(function(){
 
+    var textWidth;
+
+    $("#new-album").on("click", function () {
+        textWidth = $(this).width
+        $(this).animate({width: "300px"}, 200)
+        $("#album-select").hide();
+    })
 
 
-
+    $("#notification-article").show("drop", {direction: "up", easing: "swing"}, 800);
 
     $("#home-article").show("drop", {direction: "up", easing: "swing"}, 800);
 
@@ -13,7 +20,16 @@ $(window).load(function(){
     $(".profile-gallery").show("drop", {direction: "right", easing: "swing"}, 800);
 
     $(".deleteButton").on("click", function() {
-        $.get("/deleteImage/" + $(this).attr('id'), function() {
+        $.get("/495848-578f83ff-egg8379-yhf398-8uyfh877779h/" + $(this).attr('id'), function() {
+
+        }, "null");
+
+        var image = $(this).parent().parent();
+        image.remove();
+    });
+
+    $(".deleteButtonImage").on("click", function() {
+        $.get("/ldlkfjdf9i93j30sd0fj309sdfj321-2233jfj39-dfd8/" + $(this).attr('id'), function() {
 
         }, "null");
 

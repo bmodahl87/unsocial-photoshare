@@ -6,6 +6,7 @@ import models.Album;
 import models.Image;
 import models.User;
 import org.apache.commons.io.FileUtils;
+import play.Logger;
 import play.data.DynamicForm;
 import play.data.FormFactory;
 import play.mvc.Controller;
@@ -19,6 +20,7 @@ import java.io.InputStream;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
 
@@ -28,6 +30,7 @@ import java.util.UUID;
 public class ImageController extends Controller {
 
     private FormFactory formFactory;
+    private Logger logger;
 
     @Inject
     public ImageController(FormFactory formFactory) {
@@ -48,7 +51,13 @@ public class ImageController extends Controller {
 
                 album.name = requestData.get("album");
                 album.user = User.authFind.ref(request().username());
-                album.save();
+
+                if (!requestData.get("description").isEmpty()) {
+                    album.description = requestData.get("description");
+                    album.save();
+                } else {
+                    album.save();
+                }
 
             }
 
@@ -68,6 +77,7 @@ public class ImageController extends Controller {
                     image.thumb_image = fileName;
                     image.username = User.authFind.ref(request().username()).getUsername();
 
+
                     if (!requestData.get("album").isEmpty()) {
 
                         image.album = album;
@@ -77,6 +87,7 @@ public class ImageController extends Controller {
                     } else {
                         image.album = Album.find.where().eq("id", requestData.get("albums")).findUnique();
                     }
+
 
                     image.user = User.authFind.ref(request().username());
 
@@ -167,73 +178,82 @@ public class ImageController extends Controller {
         image.album = null;
         image.delete();
         deleteImageFiles(image.full_image);
-//        deleteThumbnailImage(image.thumb_image);
+        flash("imageDeleted", "Image Successfully Deleted!");
+
+        return ok();
+    }
+
+    @Security.Authenticated(Secured.class)
+    public Result deleteAlbum(Integer id) {
+        Album album = Album.find.where().eq("id", id).findUnique();
+        album.user = null;
+        album.delete();
         flash("imageDeleted", "Image Successfully Deleted!");
 
         return ok();
     }
 
     public Result getThumbImage(String image) {
-        return ok(new java.io.File("/Users/bmodahl/Desktop/thumbImages/" + image));
-        //return ok(new java.io.File("/home/ubuntu/thumbImages/" + image));
+        //return ok(new java.io.File("/Users/bmodahl/Desktop/thumbImages/" + image));
+        return ok(new java.io.File("/home/ubuntu/thumbImages/" + image));
     }
 
     public Result getFullImage(String image) {
-        return ok(new java.io.File("/Users/bmodahl/Desktop/fullImages/" + image));
-        //return ok(new java.io.File("/home/ubuntu/fullImages/" + image));
+        //return ok(new java.io.File("/Users/bmodahl/Desktop/fullImages/" + image));
+        return ok(new java.io.File("/home/ubuntu/fullImages/" + image));
     }
 
-    private void saveUploadedImage(Http.MultipartFormData.FilePart<File> picture, String fileName) {
+    protected void saveUploadedImage(Http.MultipartFormData.FilePart<File> picture, String fileName) {
 
         File file = picture.getFile();
 
         try {
 
-            //FileUtils.moveFile(file, new File("/home/ubuntu/fullImages/", fileName));
-            FileUtils.moveFile(file, new File("/Users/bmodahl/Desktop/fullImages/", fileName));
+            FileUtils.moveFile(file, new File("/home/ubuntu/fullImages/", fileName));
+            //FileUtils.moveFile(file, new File("/Users/bmodahl/Desktop/fullImages/", fileName));
 
         } catch (IOException ioe) {
-            System.out.println("Problem operating on filesystem");
+            logger.error("Problem operating on filesystem");
         }
 
 
     }
 
-    private void saveThumbnail(String fileName, int height) {
+    protected void saveThumbnail(String fileName, int height) {
         try (InputStream in = new URL("http://13.58.91.127:8080/1mageRes1zer/image?urls=http://52.14.60.90:8080/fullImage?image="
                 + fileName + "&height=" + height).openStream()) {
 
-            Files.copy(in, Paths.get("/Users/bmodahl/Desktop/thumbImages/" + fileName));
-            //Files.copy(in, Paths.get("/home/ubuntu/thumbImages/", fileName));
+            //Files.copy(in, Paths.get("/Users/bmodahl/Desktop/thumbImages/" + fileName));
+            Files.copy(in, Paths.get("/home/ubuntu/thumbImages/", fileName));
 
         } catch (IOException ioe) {
-            System.out.println("Problem operating on filesystem");
+            logger.error("Problem operating on filesystem");
         }
     }
 
-    private void deleteFullImage(String fileName) {
+    protected void deleteFullImage(String fileName) {
         try {
 
             FileUtils.forceDelete(new java.io.File("/Users/bmodahl/Desktop/fullImages/" + fileName));
             //FileUtils.forceDelete(new java.io.File("/home/ubuntu/fullImages/" + fileName));
 
         } catch (IOException ioe) {
-            System.out.println("Problem operating on filesystem");
+            logger.error("Problem operating on filesystem");
         }
     }
 
-    private void deleteImageFiles(String fileName) {
+    protected void deleteImageFiles(String fileName) {
         try {
 
-            FileUtils.forceDelete(new java.io.File("/Users/bmodahl/Desktop/fullImages/" + fileName));
-            //FileUtils.forceDelete(new java.io.File("/home/ubuntu/fullImages/" + fileName));
+            //FileUtils.forceDelete(new java.io.File("/Users/bmodahl/Desktop/fullImages/" + fileName));
+            FileUtils.forceDelete(new java.io.File("/home/ubuntu/fullImages/" + fileName));
 
-            FileUtils.forceDelete(new java.io.File("/Users/bmodahl/Desktop/thumbnails/" + fileName));
-            //FileUtils.forceDelete(new java.io.File("/home/ubuntu/thumbnails/" + fileName));
+            //FileUtils.forceDelete(new java.io.File("/Users/bmodahl/Desktop/thumbnails/" + fileName));
+            FileUtils.forceDelete(new java.io.File("/home/ubuntu/thumbnails/" + fileName));
 
 
         } catch (IOException ioe) {
-            System.out.println("Problem operating on filesystem");
+            logger.error("Problem operating on filesystem");
         }
     }
 

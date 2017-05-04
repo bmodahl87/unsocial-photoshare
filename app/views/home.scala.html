@@ -16,12 +16,13 @@
             @for(image <- image) {
 
                 <li class="following-box galleryli">
-                    <table class="">
-                        <tr class="top"><td> <div id="following-image-box"> <img class="following-profile-image" src="@routes.ImageController.getFullImage(user.getProfile_image)"> </div><div class="user-title">@user.username</div></td></tr>
+                    <table>
+                        <tr class="top"><td> <div id="following-image-box"> <img class="following-profile-image" src="@routes.ImageController.getThumbImage(user.getProfile_image)"> </div><div class="user-title">@user.username</div></td></tr>
+                        <tr class="bottom"><td><p class="home-album-name">Uploaded: @image.date</p></td></tr>
                         <tr class="middle"><td><a class="full-following-image" href="@routes.ImageController.getFullImage(image.full_image)" data-lightbox="image-1">
                             <img class="thumb-image" src="@routes.ImageController.getThumbImage(image.thumb_image)" alt="Time">
                         </a></td></tr>
-                            <tr class="bottom"><td><div class="home-album-name">Uploaded: </div></td></tr>
+
 
                     </table>
                 </li>
@@ -32,16 +33,17 @@
                     @for(image <- following.images) {
                         <li class="following-box galleryli">
                             <table>
-                                <tr class="top"><td> <div id="following-image-box"> <img class="following-profile-image" src="@routes.ImageController.getFullImage(following.user.getProfile_image)"> </div><div class="user-title">@following.username</div></td></tr>
+                                <tr class="top"><td> <div id="following-image-box"> <img class="following-profile-image" src="@routes.ImageController.getThumbImage(following.user.getProfile_image)"> </div><div class="user-title">@following.username</div></td></tr>
+                                <tr class="bottom"><td><p class="home-album-name">Uploaded: @image.date</p></td></tr>
                                 <tr class="middle"><td><a class="full-following-image" href="@routes.ImageController.getFullImage(image.full_image)" data-lightbox="image-1">
                                     <img class="thumb-image" src="@routes.ImageController.getThumbImage(image.thumb_image)" alt="Time">
                                 </a></td></tr>
-                                <tr class="bottom"><td><p class="home-album-name">Uploaded: </p></td></tr>
+
 
                             </table>
-
+                        </li>
                         }
-                    </li>
+
                 }
             </ul>
 
