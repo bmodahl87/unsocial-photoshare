@@ -1,6 +1,6 @@
 # UnsocialPhotoShare
 
-## Running Project @ http://52.14.60.90:8080/ - This is just educational, I got as far as I could for a final school project. Still in a development state, possible updates just for playing around.
+Running Project @ http://52.14.60.90:8080/ - This is just educational, I got as far as I could for a final school project. Still in a development state, possible updates just for playing around.
 
 # Brandon Modahl's Individual Project
 
